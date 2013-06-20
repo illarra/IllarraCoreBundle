@@ -1,0 +1,186 @@
+//
+// Typo
+//
+
+h1, h2, h3, h4, h5 {
+    margin-top: 0;
+}
+
+//
+// Forms
+//
+
+input[type='text'],
+input[type='password'],
+input[type='number'],
+textarea {
+    font-size: emCalc(16px);
+    
+    @media #{$small} {
+        font-size: 1em;
+    }
+}
+
+textarea {
+    min-height: 110px;
+}
+
+//
+// Top bar
+//
+
+.top-bar-wrapper {
+    background: $topbar-bg;
+    margin-bottom: $base-padding;
+    
+    @media #{$small} {
+        margin-bottom: $column-gutter;
+    }
+}
+
+@media #{$topbar-media-query} {
+    .top-bar-section {
+        .has-dropdown {
+            &:hover,
+            &:active {
+                & > a:not(.button) {
+                    background-color: $primary-color;
+                }
+        
+                & > .dropdown {
+                    li a {
+                        background-color: $primary-color;
+                        
+                        &:hover,
+                        &:active {
+                            background: darken($primary-color, 10%);
+                        }
+                    }
+                }
+                
+                .divider {
+                    border-bottom: solid 1px lighten($primary-color, 10%);
+                    border-top: solid 1px darken($primary-color, 10%);
+                }
+            }
+        }
+    }
+}
+
+//
+// Alert box
+//
+
+.alert-box {
+    line-height: $header-line-height;
+}
+
+hr {
+    margin: $base-padding 0;
+    border-color: $hr-color;
+    
+    &.dark {
+        border-color: $hr-dark-color;
+    }
+}
+
+//
+// Buttons
+//
+
+.button-bar { 
+    form {
+        margin: 0;
+    }
+    
+    .radius {
+        button {
+            @include border-radius($global-radius);
+        }
+    }
+    
+    .page-range {
+        float: $default-opposite;
+        line-height: 30px;
+        
+        @media #{$small} {
+            float: $default-float;
+        }
+    }
+    
+    .button {
+        margin-bottom: 0;
+    }
+    
+    &.#{$default-opposite} {
+        .button-group {
+            margin-#{$default-float}: $half-padding;
+            margin-#{$default-opposite}: 0;
+        }
+    }
+}
+
+.button {
+    text-transform: uppercase;
+    
+    &.compact {
+        padding-right: $button-med;
+        padding-left: $button-med;
+    }
+    
+    &.pressed {
+        background-color: darken($secondary-color, $button-function-factor);
+        @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.2) inset);
+    }
+}
+
+//
+// Typo
+//
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: $header-line-height;
+}
+
+//
+// Helpers
+//
+
+.small {
+    p, li {
+        font-size: 0.9em;
+    }
+}
+
+.normal {
+    font-weight: normal;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+// Colors
+
+.color-text {
+    color: $body-font-color;
+}
+.color-subheader,
+.color-text-light {
+    color: $subheader-font-color;
+}
+.color-text-lightest {
+    color: #ddd;
+}
+.color-primary {
+    color: $primary-color;
+}
+.color-success {
+    color: $success-color;
+}
+.color-alert {
+    color: $alert-color;
+}
+.color-warning {
+    color: $warning-color;
+}

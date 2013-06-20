@@ -1,0 +1,87 @@
+format:
+    date:           d/m/Y
+    datetime:       d/m/Y H:i
+
+menu:
+    dashboard:      Panel de control
+    analytics:      Analytics
+    contact:        Contacto
+    users:          Usuarios
+    logs:           Logs
+
+title:
+    admin:          Zona de administración
+    dashboard:      Panel de control
+    analytics:      Resumen de Google Analytics
+    contact:        Contacta con nosotros
+    logs:           Logs
+
+subheader:
+    login:          Introduce tu nombre de usuario y contraseña para acceder a la zona de administración.
+    403:            "Acceso denegado. Has intentado acceder a %s pero no tienes permisos suficientes para ver esta página. Contacta con tu administrador o con nosotros para ver qué es lo que puede estar pasando."
+    contact:        "Queremos mantener una comunicación fluída con nuestros clientes para hacer realidad su estrategía en internet. Estamos aquí para echarte una mano, así que no dudes en contactar con nosotros."
+    analytics:      "Pronto podrás ver aquí un resumen de la información disponible en Google Analytics. ¡Estate atento!"
+
+#
+# Actions
+#
+
+action:
+    login:          Login
+    logout:         Salir
+    back:           Volver
+    delete:         Eliminar
+    edit:           Editar
+    new:            Nuevo
+    save:           Guardar
+    select:         Seleccionar
+    selectAll:      Seleccionar todos
+    show:           Ver
+    addNewLocale:   Añadir un nuevo idioma
+    deleteAll:      Eliminar registros
+    sort:           Reordenar
+    search:         Buscar
+
+page:
+    previous:       Página anterior
+    next:           Página siguiente
+    range:          %1$s-%2$s de %3$s
+
+public:
+    link:           Enlace público
+
+#
+# Global labels
+#
+
+label:
+    username:       Nombre de usuario
+    password:       Contraseña
+    telephone:      Teléfono
+    email:          Email
+    newLocale:      Nuevo idioma
+    createdAt:      Creado
+    updatedAt:      Actualizado
+    createdBy:      Creado por
+    updatedBy:      Actualizado por
+    isFeatured:     Destacado
+    isVisible:      Visible
+    point:          Localización
+
+layout:
+    table:          Ver lista
+    grid:           Ver detalle
+
+toggle:
+    isFeatured:     isFeatured
+    isVisible:      isVisible
+
+placeholder:
+    chosen:
+        one:        Elige una opción
+        multiple:   Elige una o más opciones
+        no_results: No se han encontrado resultados para
+
+# Error messages at login
+
+'Bad credentials': 'Nombre de usuario o contraseña incorrectos'

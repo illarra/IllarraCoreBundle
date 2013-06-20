@@ -1,0 +1,193 @@
+{% macro action_back_button(url) %}
+{% spaceless %}
+    <a href="{{ url }}" class="t-back has-tip noradius secondary button"
+        data-tooltip title="{{ 'action.back'|trans({}, 'illarra_admin') }}">
+        <i class="icon-arrow-left"></i>
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro action_new_button(url) %}
+{% spaceless %}
+    <a href="{{ url }}" class="t-new alert button">
+        {{ 'action.new'|trans({}, 'illarra_admin') }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro action_edit_button(url) %}
+{% spaceless %}
+    <a href="{{ url }}" class="t-edit alert button">
+        {{ 'action.edit'|trans({}, 'illarra_admin') }}
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro action_delete_all_button() %}
+{% spaceless %}
+    <a href="#" class="t-delete-all has-tip noradius secondary button"
+        data-tooltip title="{{ 'action.deleteAll'|trans({}, 'illarra_admin') }}">
+        <i class="icon-remove"></i>
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro action_select_button() %}
+{% spaceless %}
+    <a href="#" class="has-tip noradius secondary button js-check-all"
+        data-tooltip title="{{ 'action.selectAll'|trans({}, 'illarra_admin') }}">
+        <i class="icon-check-empty"></i>
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro action_filter_button() %}
+{% spaceless %}
+    <a href="#" class="t-filter has-tip noradius secondary button"
+        data-tooltip title="{{ 'action.search'|trans({}, 'illarra_admin') }}">
+        <i class="icon-search"></i>
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro data_entity(entity) %}
+{% spaceless %}
+    data-entity data-entity-namespace="{{ entity|classify }}" data-entity-id="{{ entity.id }}"
+    data-toggle-url="{{ url('illarra_admin_toggle') }}"
+    data-sort-url="{{ url('illarra_admin_sort') }}"
+{% endspaceless %}
+{% endmacro %}
+
+{% macro render_check() %}
+{% spaceless %}
+    <i class="icon-check-empty js-check" title="{{ 'action.select'|trans({}, 'illarra_admin') }}"></i>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro page_range(page, pages, entities_per_page, entities_count) %}
+{% spaceless %}
+    {%- if page != pages %}
+        {% set entities_in_this_page = page * entities_per_page %}
+    {%- else -%}
+        {% set entities_in_this_page = entities_count %}
+    {%- endif %}
+    {% set string = 'page.range'|trans({}, 'illarra_admin') %}
+    <span class="page-range">
+        {{ string|format(
+            '<strong>' ~ (((page - 1) * entities_per_page) + 1) ~ '</strong>',
+            '<strong>' ~ entities_in_this_page ~ '</strong>',
+            '<strong>' ~ entities_count ~ '</strong>'
+        )|raw }}
+    </span>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro page_previous_button(route, page, pages) %}
+{% spaceless %}
+    {% if page == 1 %}
+        <a href="#" class="disabled compact secondary button">
+            <i class="icon-chevron-left"></i>
+        </a>
+    {% else %}
+        <a href="{{ path(route, {'page': (page - 1)}) }}" class="has-tip noradius compact secondary button"
+            data-tooltip title="{{ 'page.previous'|trans({}, 'illarra_admin') }}">
+            <i class="icon-chevron-left"></i>
+        </a>
+    {% endif %}
+{% endspaceless %}
+{% endmacro %}
+
+{% macro page_next_button(route, page, pages) %}
+{% spaceless %}
+    {% if page == pages %}
+        <a href="#" class="disabled compact secondary button">
+            <i class="icon-chevron-right"></i>
+        </a>
+    {% else %}
+        <a href="{{ path(route, {'page': (page + 1)}) }}" class="has-tip noradius compact secondary button"
+            data-tooltip title="{{ 'page.next'|trans({}, 'illarra_admin') }}">
+            <i class="icon-chevron-right"></i>
+        </a>
+    {% endif %}
+{% endspaceless %}
+{% endmacro %}
+
+{% macro layout_table_button() %}
+{% spaceless %}
+    <a href="#" class="has-tip noradius compact secondary button"
+        data-table-view-list
+        data-tooltip title="{{ 'layout.table'|trans({}, 'illarra_admin') }}">
+        <i class="icon-align-justify"></i>
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro layout_grid_button() %}
+{% spaceless %}
+    <a href="#" class="has-tip noradius pressed compact secondary button"
+        data-table-view-block-grid
+        data-tooltip title="{{ 'layout.grid'|trans({}, 'illarra_admin') }}">
+        <i class="icon-th-large"></i>
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro render_toggle_icon(data) %}
+{% spaceless %}
+    {% set class_on  = data.classOn %}
+    {% set class_off = data.classOff %}
+    {% if attribute(data.entity, data.field) %}
+        {% set class = class_on %}
+    {% else %}
+        {% set class = class_off %}
+    {% endif %}
+    <a href="#" class="color-text"
+        data-toggle data-toggle-field="{{ data.field }}"
+        {% if data.group is defined %}data-toggle-group="{{ data.group~data.field }}"{% endif %}
+        data-toggle-on="{{ class_on }}" data-toggle-off="{{ class_off }}">
+        <i class="{{ class }}"></i>
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro render_is_featured_icon(entity) %}
+{% spaceless %}
+    {% set class_on  = 'icon-star color-primary' %}
+    {% set class_off = 'icon-star-empty' %}
+    {% if entity.isFeatured %}
+        {% set class = class_on %}
+    {% else %}
+        {% set class = class_off %}
+    {% endif %}
+    <a href="#" class="color-text"
+        data-toggle data-toggle-field="isFeatured"
+        data-toggle-on="{{ class_on }}" data-toggle-off="{{ class_off }}">
+        <i class="{{ class }}"></i>
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro render_is_visible_icon(entity) %}
+{% spaceless %}
+    {% set class_on  = 'icon-eye-open' %}
+    {% set class_off = 'icon-eye-close color-alert' %}
+    {% if entity.isVisible %}
+        {% set class = class_on %}
+    {% else %}
+        {% set class = class_off %}
+    {% endif %}
+    <a href="#" class="color-text"
+        data-toggle data-toggle-field="isVisible"
+        data-toggle-on="{{ class_on }}" data-toggle-off="{{ class_off }}">
+        <i class="{{ class }}"></i>
+    </a>
+{% endspaceless %}
+{% endmacro %}
+
+{% macro render_sort_icon(entity) %}
+{% spaceless %}
+    <i class="sort-handle icon-reorder"
+        data-sortable-handle data-sortable-url="{{ url('illarra_admin_sort') }}"
+        title="{{ 'action.sort'|trans({}, 'illarra_admin') }}"></i>
+{% endspaceless %}
+{% endmacro %}

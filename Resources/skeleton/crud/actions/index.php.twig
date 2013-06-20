@@ -1,0 +1,43 @@
+
+    use \Illarra\CoreBundle\Traits\Controller\CoreConfiguration;
+    
+{% if 'annotation' == format %}
+    /**
+     * @Route("/{page}", name="{{ route_name_prefix }}_index", defaults={"page" = 1}, requirements={"page" = "\d+"})
+     * @Method("GET")
+     * @Template()
+     */
+{% endif %}
+    public function indexAction($page)
+    {
+        if ($page < 1) {
+            return $this->redirect($this->generateUrl('{{ route_name_prefix }}_index'));
+        }
+        
+        $repository = $this->getDoctrine()->getRepository('{{ bundle }}:{{ entity }}');
+        $repository->setEntitiesPerPage($this->getEntitiesPerPageInAdmin());
+        
+        if ($page > $repository->getPages()) {
+            return $this->redirect($this->generateUrl('{{ route_name_prefix }}_index',
+                array('page' => $repository->getPages()))
+            );
+        }
+        
+{% if 'annotation' == format %}
+        return array(
+            'page'              => $page,
+            'pages'             => $repository->getPages(),
+            'entities'          => $repository->findAllOrdered($page),
+            'entities_per_page' => $repository->getEntitiesPerPage(),
+            'entities_count'    => $repository->getEntitiesCount(),
+        );
+{% else %}
+        return $this->render('{{ bundle }}:{{ entity|replace({'\\': '/'}) }}:index.html.twig', array(
+            'page'              => $page,
+            'pages'             => $repository->getPages(),
+            'entities'          => $repository->findAllOrdered($page),
+            'entities_per_page' => $repository->getEntitiesPerPage(),
+            'entities_count'    => $repository->getEntitiesCount(),
+        ));
+{% endif %}
+    }

@@ -1,0 +1,2 @@
+{% set sitemap_index = knp_menu_get('IllarraCoreBundle:SitemapBuilder:indexMenu', [], {}) %}
+{{ knp_menu_render(sitemap_index, {'template': 'IllarraCoreBundle:Menu:sitemap_index.xml.twig'}) }}

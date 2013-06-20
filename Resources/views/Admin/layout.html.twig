@@ -1,0 +1,129 @@
+{% extends "IllarraCoreBundle::base.html.twig" %}
+
+{% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}
+
+{% trans_default_domain "illarra_admin" %}
+
+{% block stylesheets %}
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,700' rel='stylesheet' type='text/css'>
+    {% stylesheets
+        "@IllarraCoreBundle/Resources/assets/vendor/chosen/chosen/chosen.css"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/css/smoothness/jquery-ui-1.10.1.custom.css"
+        "@IllarraCoreBundle/Resources/assets/css/admin.css"
+        "@IllarraCoreBundle/Resources/assets/css/ie8.css"
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {% if app.environment == 'dev' %}
+        {% javascripts "@IllarraCoreBundle/Resources/assets/js/vendor/jquery.js" %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% else %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    {% endif %}
+    {% javascripts
+        "@IllarraCoreBundle/Resources/assets/js/vendor/custom.modernizr.js"
+        "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.js"
+        "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.topbar.js"
+        "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.section.js"
+        "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.reveal.js"
+        "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.tooltips.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/chosen/chosen/chosen.jquery.js"
+        "@IllarraCoreBundle/Resources/assets/js/base.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.core.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.widget.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.mouse.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.sortable.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.draggable.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.resizable.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.button.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.dialog.js"
+        "@IllarraCoreBundle/Resources/assets/js/vendor/jquery.ui.touch-punch.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-markedit/jquery.markedit.js"
+        "@IllarraCoreBundle/Resources/assets/vendor/jquery-markedit/showdown.js"
+        "@IllarraCoreBundle/Resources/assets/js/image.js"
+        "@IllarraCoreBundle/Resources/assets/js/map.js"
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block head_elements %}
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+{% endblock %}
+
+{% block title %}{{ app.request.host }} - {{ 'title.admin'|trans }}{% endblock %}
+
+{% block body %}
+<div id="header" class="top-bar-wrapper">
+    <div class="row">
+        <nav class="top-bar" data-back-text="Test">
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="{{ path('illarra_admin_index') }}">{{ app.request.host }}</a></h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+            </ul>        
+            <section class="top-bar-section">
+                {% set admin_menu = knp_menu_get('IllarraCoreBundle:AdminBuilder:mainMenu', [], {}) %}
+                {{ knp_menu_render(admin_menu, {'template': 'IllarraCoreBundle:Menu:foundation_top_bar_admin.html.twig'}) }}
+                {% if app.user %}
+                    <ul class="right">
+                        <li class="has-dropdown">
+                            <a href="#"><i class="icon-user" style="margin-left:-3px"></i> {{ app.user.username }}</a>
+                            <ul class="dropdown auto-width">
+                                {#
+                                <li>
+                                    <a href="{{ path('illarra_admin_index') }}">
+                                        <i class="icon-dashboard"></i>&nbsp; {{ 'menu.dashboard'|trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('illarra_admin_analytics') }}">
+                                        <i class="icon-bar-chart"></i>&nbsp; {{ 'menu.analytics'|trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('illarra_admin_contact') }}">
+                                        <i class="icon-envelope"></i>&nbsp; {{ 'menu.contact'|trans }}
+                                    </a>
+                                </li>#}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="{{ path('illarra_admin_logs') }}">
+                                            <i class="icon-warning-sign"></i>&nbsp; {{ 'menu.logs'|trans }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="{{ path('illarra_admin_logout') }}">
+                                        <i class="icon-off"></i>&nbsp; {{ 'action.logout'|trans }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                {% endif %}
+            </section>
+        </nav>
+    </div>
+</div>
+<div id="body" class="row">
+    <div class="large-12 columns">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<div id="footer" class="row">
+    <div class="large-12 columns">
+        <hr />
+        <small class="subheader-color">
+            &copy; {{ "now"|date("Y") }}, <strong>illarra</strong>. Zarautz, Barcelona, Gent.
+        </small>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{# CSS #}
+{% stylesheets
+    "@IllarraCoreBundle/Resources/assets/css/toolbar.css"
+%}
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+{% endstylesheets %}
+
+{# JAVASCRIPT #}
+{% javascripts
+    "@IllarraCoreBundle/Resources/assets/js/toolbar.js"
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<div class="illarra-admin-toolbar"></div>
+<div class="illarra-admin-toolbar-flyer"></div>
+<input id="illarra-admin-content-edit-url" type="hidden" value="{{ path('admin_illarra_content_content_edit', {'id': 12345678901337}) }}" />
+<input id="illarra-admin-content-new-url" type="hidden" value="{{ path('admin_illarra_content_content_new') }}" />

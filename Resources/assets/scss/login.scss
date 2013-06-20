@@ -1,0 +1,83 @@
+@import "compass";
+
+@import "admin-settings";
+@import "normalize";
+
+$row-width: emCalc(384px);
+
+@import "login-foundation";
+@import "foundation-mods";
+
+//
+// Custom
+//
+
+body {
+    font-size: 13px;
+    -webkit-font-smoothing: antialiased;
+}
+
+form {
+    margin: $base-padding 0 $column-gutter;
+    border: 1px solid $hr-color;
+    padding: $base-padding $base-padding ($base-padding - $button-margin-bottom);
+    background: $hover-color;
+    @include radius($global-radius);
+    
+    @media #{$small} {
+        margin-top: ($column-gutter * 2);
+        padding: $column-gutter $column-gutter ($column-gutter - $button-margin-bottom);
+    }
+    
+    .subheader {
+        min-height: 64px;
+        margin: 0 0 ($column-gutter / 2);
+        font-size: emCalc(16px);
+        
+        @media #{$small} {
+            font-size: emCalc(17px);
+        }
+    }
+    
+    .logo {
+        display: block;
+        overflow: hidden;
+        float: right;
+        height: 64px;
+        width: 64px;
+        background: transparent url(/bundles/illarracore/illarra-logo-128-bw.png) no-repeat;
+        background-size: contain;
+        margin: 0 0 $base-padding $base-padding;
+    }
+    
+    &:hover {
+        .logo {
+            background-image: url(/bundles/illarracore/illarra-logo-128.png);
+        }
+    }
+}
+
+html.inlinesvg {
+    form {
+        .logo {
+            background-image: url(/bundles/illarracore/illarra-logo-bw.svg);
+        }
+        
+        &:hover {
+            .logo {
+                background-image: url(/bundles/illarracore/illarra-logo.svg);
+            }
+        }
+    }
+}
+
+.footer {
+    padding: 0 $column-gutter;
+    margin-bottom: $column-gutter;
+    color: $subheader-font-color;
+    line-height: 1.2;
+    
+    @media #{$small} {
+        padding: 0 $base-padding;
+    }
+}

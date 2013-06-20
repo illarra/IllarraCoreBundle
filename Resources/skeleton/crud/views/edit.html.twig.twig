@@ -1,0 +1,30 @@
+{{ '{% extends "IllarraCoreBundle:Admin:layout.html.twig" %}' }}
+
+{{ '{% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}' }}
+
+{{ '{% trans_default_domain "illarra_admin" %}' }}
+
+{{ "{% block content %}" }}
+{% set hide_edit, hide_delete = true, false %}
+<div class="row">
+    <div class="large-12 columns">
+        {% include 'views/others/record_actions.html.twig.twig' %}
+        <hr class="dark" />
+        <h3>{{ "{{ '"~ entity|lower ~".title.edit'|trans }}" }}</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="large-8 columns">
+        {{ "{% include 'ChangeMeBundle:Admin/"~ entity ~":_form.html.twig'
+            with {
+                'action': path('"~ route_name_prefix ~"_update', { 'id': entity.id }),
+                'method': 'PUT',
+                'form': edit_form
+            } only
+        %}" }}
+    </div>
+    <div class="large-4 columns">
+        {%- include "views/others/metadata.html.twig.twig" %}
+    </div>
+</div>
+{{ "{% endblock %}" }}

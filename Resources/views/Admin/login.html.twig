@@ -1,0 +1,54 @@
+{% extends "IllarraCoreBundle::base.html.twig" %}
+
+{% trans_default_domain "illarra_admin" %}
+
+{% block stylesheets %}
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,700' rel='stylesheet' type='text/css'>
+    {% stylesheets
+        "@IllarraCoreBundle/Resources/assets/css/login.css"
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {% if app.environment == 'dev' %}
+        {% javascripts "@IllarraCoreBundle/Resources/assets/js/vendor/jquery.js" %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% else %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    {% endif %}
+    {% javascripts
+        "@IllarraCoreBundle/Resources/assets/js/vendor/custom.modernizr.js"
+        "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.js"
+        "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.alerts.js"
+        "@IllarraCoreBundle/Resources/assets/js/login.js"
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block title %}{{ app.request.host }} - {{ 'title.admin'|trans }}{% endblock %}
+
+{% block body %}
+<div class="body row">
+    <div class="large-12 columns">
+        <form action="{{ path('illarra_admin_security_check') }}" method="post" id="login">
+            <span class="logo"></span>
+            <h5 class="subheader">{{ 'subheader.login'|trans }}</h5>
+            {% if error %}
+                <div data-alert class="alert-box alert">{{ error.message|trans }} <a href="#" class="close">&times;</a></div>
+            {% endif %}
+            <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ 'label.username'|trans }}" />
+            <input type="password" id="password" name="_password" placeholder="{{ 'label.password'|trans }}" />
+            <hr />
+            <button class="radius button" type="submit">{{ 'action.login'|trans }}</button>
+        </form>
+        <p class="footer text-center">
+            <small>© 2013, <strong>illarra</strong>. Zarautz, Barcelona, Gent.
+            <br />{{ 'label.telephone'|trans }}: +32 476 06 63 87</small>
+        </p>
+    </div>
+</div>
+{% endblock %}

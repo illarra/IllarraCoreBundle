@@ -1,0 +1,8 @@
+
+                <div class="button-bar">
+                    {%- for action in record_actions %}
+                    <ul class="button-group radius">
+                        <li>{{ "{{ helper.action_"~ action ~"_button(path('"~ route_name_prefix ~"_"~ action ~"', { 'id': entity.id })) }}" }}</li>
+                    </ul>
+                    {%- endfor %}
+                </div>

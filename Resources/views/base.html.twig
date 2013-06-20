@@ -1,0 +1,25 @@
+{% spaceless %}
+<!DOCTYPE html>
+{# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ #}
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="{{ app.request.locale }}"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="{{ app.request.locale }}"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="{{ app.request.locale }}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="{{ app.request.locale }}"> <!--<![endif]-->
+    <head>
+        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Welcome{% endblock %}</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        {# rel="alternate" hreflang="x": http://support.google.com/webmasters/bin/answer.py?hl=en&answer=189077 #}
+        {% for locale in active_locales if locale != app.request.locale %}
+            <link rel="alternate" hreflang="{{ locale }}" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': locale})) }}" />
+        {% endfor %}
+        {% block head_elements %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
+{% endspaceless %}

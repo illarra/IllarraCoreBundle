@@ -1,0 +1,29 @@
+{
+  "name": "illarra/core-bundle",
+  "description": "Core functionality.",
+  "keywords": ["core", "utility", "bundle"],
+  "homepage": "https://bitbucket.org/illarra/illarracorebundle",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Asier Illarramendi",
+      "email": "asier@illarra.com"
+    },
+    {
+      "name": "Eneko Illarramendi",
+      "email": "eneko@illarra.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4"
+  },
+  "require-dev": {
+    "symfony/framework-bundle": ">=2.3,<2.4-dev"
+  },
+  "autoload": {
+    "psr-0": { "Illarra\\CoreBundle": "" }
+  },
+  "target-dir": "Illarra/CoreBundle",
+  "minimum-stability": "dev"
+}

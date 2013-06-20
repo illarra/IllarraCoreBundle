@@ -1,0 +1,23 @@
+/* line 1, ../scss/toolbar.scss */
+.illarra-admin-toolbar {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 250px;
+  height: 300px;
+  overflow: scroll;
+  background-color: #fafafa;
+  border: 1px solid #eeeeee;
+  z-index: 99999;
+}
+
+/* line 13, ../scss/toolbar.scss */
+.illarra-admin-toolbar-flyer {
+  border-radius: 5px;
+  border: 1px dashed #dddd00;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 99999;
+  background-color: rgba(255, 255, 0, 0.5);
+}

@@ -1,0 +1,457 @@
+@import "compass";
+
+@import "admin-settings";
+@import "normalize";
+@import "admin-foundation";
+@import "foundation-mods";
+
+@import "font-awesome";
+@import "js-chosen";
+@import "js-markedit";
+
+$base-padding-px: 20px;
+$td-padding-top-px: 7px;
+$td-padding-left-px: 3px;
+$td-padding-px: $td-padding-top-px $td-padding-left-px;
+
+@mixin ellipsis() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+//
+// Custom
+//
+
+body {
+    font-size: 13px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.top-bar {
+    margin: 0 -10px;
+    
+    .name h1 a {
+        padding-left: $base-padding-px;
+        padding-right: $base-padding-px;
+    }
+    .top-bar-section {
+        li a:not(.button) {
+            padding-left: $base-padding-px;
+            padding-right: $base-padding-px;
+            font-size: emCalc(12px);
+            
+            &:hover {
+                background: $primary-color;
+            }
+        }
+        .dropdown {
+            li a {
+                padding: 12px $base-padding-px;
+                min-width: emCalc(160px);
+            }
+            li.title h5 { // "Back" button
+                font-size: .9em;
+                margin: 0;
+                
+                a {
+                    background: lighten($topbar-bg, 5%);
+                    line-height: inherit;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+            }
+        }
+        .dropdown.auto-width li a {
+            min-width: auto;
+        }
+    }
+    .toggle-topbar.menu-icon {
+        right: $base-padding-px;
+    }
+}
+
+#footer {
+    margin-top: $base-padding;
+    margin-bottom: $column-gutter;
+}
+
+//
+// Nice section
+//
+
+.clean-section {
+    margin-bottom: $base-padding;
+    
+    [class^="icon-"], [class*=" icon-"] {
+        display: inline-block;
+        text-align: center;
+        width: 14px;
+    }
+    
+    .section-container {
+        border: 0;
+        
+        .section {
+            border: 0;
+            
+            .title {
+                padding: $quarter-padding 0;
+                border-top: 0; //border-top: 1px dotted $hr-color;
+                margin-top: 0;
+                
+                a {
+                    font-size: 1em;
+                    padding: 3px 0;
+                }
+                
+                .icon-section-indicator:before {
+                    content: "\f105";
+                }
+                
+                &:hover {
+                    background: transparent;
+                };
+            }
+            
+            .content {
+                display: block;
+                padding: $base-padding;
+                background-color: $hover-color;
+                margin-right: -($base-padding-px);
+                margin-bottom: $half-padding;
+                
+                @media #{$small} {
+                    margin-right: 0;
+                }
+                
+                h6 {
+                    margin-top: 1em;
+                    border-bottom: 1px solid $hr-color;
+                
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+            }
+            
+            //&.active {
+                .title {
+                    background: transparent;
+                    border-bottom: 3px solid $primary-color;
+                    
+                    .icon-section-indicator:before {
+                        content: "\f107";
+                    }
+                }
+            //}
+        }
+    }
+}
+
+.checkbox-container {
+    input {
+        margin-right: 1em;
+    }
+
+    label {
+        display: inline-block;
+    }
+}
+
+//
+// Maps
+//
+
+.map-content {
+    .map-canvas {
+        height: 300px;
+        width: 100%;
+        
+        img {
+            max-width: none !important;
+        }
+    }
+    
+    .postfix {
+        height: 2.5em;
+    }
+}
+
+//
+// Typography
+//
+
+body, p {
+    line-height: 1.4;
+}
+
+a {
+    color: darken($primary-color, 20%);
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+img.avatar {
+    &.medium {
+        height: 96px;
+        width: 96px;
+    }
+    
+    &.large {
+        height: 128px;
+        width: 128px;
+    }
+    
+    &.radius {
+        @include radius($global-radius);
+    }
+    
+    &.rounded {
+        @include radius($global-rounded);
+    }
+}
+
+.sort-handle {
+    cursor: move;
+    color: lighten($subheader-font-color, 30%);
+}
+
+.subheader-color {
+    color: $subheader-font-color;
+}
+
+//
+// Tables
+//
+
+.fake-table {
+    .panel {
+        margin: $base-padding 0 $base-padding (-($base-padding));
+        border: 0;
+        
+        p {
+            color: darken($primary-color, 10%);
+            
+            [class^="icon-"],
+            [class*=" icon-"] {
+                margin: 0 $half-padding 0 $td-padding-left-px;
+            }
+        }
+        
+        @media #{$small} {
+            border-color: lighten($primary-color, 25%);
+            margin-left: 0;
+            
+            p {
+                [class^="icon-"],
+                [class*=" icon-"] {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    
+    .fake-tr {
+        padding: $td-padding-px;
+        border-top: 1px solid $hr-color;
+        
+        [class^="icon-"],
+        [class*=" icon-"] {
+            margin-right: ($half-padding + $quarter-padding);
+            
+            @media #{$small} {
+                margin-right: $half-padding;
+            }
+        }
+        
+        .right,
+        .text-right {
+            i {
+                margin-right: 0;
+            }
+            
+            .label {
+                cursor: pointer;
+                background-color: $hover-color;
+                color: $subheader-font-color;
+                margin-left: $half-padding;
+                font-size: .9em;
+                padding: 0.3em 0.6em;
+                
+                i {
+                    margin-right: 2px;
+                }
+                
+                &:hover {
+                    background-color: $primary-color;
+                    color: $hover-color;
+                }
+            }
+        }
+        
+        &:hover {
+            background-color: $hover-color;
+        }
+        
+        .large-9 {
+            @include ellipsis();
+            
+            .actions-icon-bar {
+                padding-left: $quarter-padding;
+                
+                .has-tip {
+                    cursor: help;
+                }
+            }
+        }
+        
+        .extra {
+            display: none;
+            
+            @media #{$small} {
+                display: inline;
+                margin-left: $half-padding;
+                font-size: .9em;
+                color: $subheader-font-color;
+            }
+        }
+        
+        .fake-tr {
+            border-left: 3px solid lighten($primary-color, 10%);
+            margin: 0 (-($td-padding-left-px)) 0 15px;
+            
+            @media #{$small} {
+                margin-left: 14px;
+            }
+            
+            &:first-child {
+                margin-top: $td-padding-top-px;
+            }
+            
+            &:last-child {
+                margin-bottom: -($td-padding-top-px);
+            }
+        }
+        
+        .drop-area {
+            margin: $td-padding-top-px 0 (-($td-padding-top-px)) 0;
+            height: $base-padding;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQALv3r37zwjjgzhCQkKMYAEYB8RmROaABAAS4A/OBaAi1gAAAABJRU5ErkJggg==) repeat;
+        }
+    }
+    
+    .fake-td {
+        padding: $td-padding-px 0;
+        border-top: 1px solid $hr-color;
+        
+        @media #{$small} {
+            padding: $half-padding;
+            margin-left: -($half-padding);
+        }
+        
+        &:hover {
+            background-color: $hover-color;
+        }
+        
+        .inline-list {
+            margin-bottom: $quarter-padding;
+        }
+        
+        .title {       
+            .actions-icon-bar {
+                display: block;
+                margin-bottom: $quarter-padding;
+            
+                [class^="icon-"],
+                [class*=" icon-"] {
+                    cursor: pointer;
+                    margin-right: $half-padding;
+                }
+            }
+        }
+        
+        img {
+            &.left,
+            &.float-left {
+                margin: .25em ($half-padding + $quarter-padding) $quarter-padding 0;
+            }
+            &.right,
+            &.float-right {
+                margin: .25em 0 $quarter-padding ($half-padding + $quarter-padding);
+            }
+        }
+    }
+    
+    &.small-block-grid-1 {
+        margin: 0;
+        
+        > li {
+            padding: 0;
+            
+            .fake-td {
+                margin: 0;
+                padding: $td-padding-px;
+                font-size: 1em;
+                
+                @media #{$small} {
+                    padding: $td-padding-px;
+                    margin-left: 0;
+                }
+                
+                .title {
+                    font-size: 1em;
+                    padding-bottom: 0;
+                    margin: 0;
+                    line-height: 1.4;
+                    
+                    .actions-icon-bar {
+                        [class^="icon-"],
+                        [class*=" icon-"] {
+                            @media #{$small} {
+                                margin-right: $quarter-padding;
+                            }
+                        }
+                        
+                        @media #{$small} {
+                            display: inline;
+                            float: none;
+                        }
+                    }
+                }
+                
+                .hide-for-grid-1 {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+//
+// .js-toggle
+//
+
+.js-admin-toggling .js-toggle {
+    [class^="icon-"], [class*=" icon-"] {
+        color: lighten($body-font-color, 50%);
+    }
+}
+
+//
+// .js-sort
+//
+
+.js-admin-sorting .js-sort {
+    color: lighten($body-font-color, 75%);
+}
+
+//
+// helpers
+//
+.clearfix {
+    @include clearfix();
+}

@@ -1,0 +1,22 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block list %}
+{% if item.hasChildren and options.depth is not sameas(0) and item.displayChildren %}
+{% spaceless %}
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        {{ block('children') }}
+    </sitemapindex>
+{% endspaceless %}
+{% endif %}
+{% endblock %}
+
+{% block item %}
+{% if item.displayed %}
+{% spaceless %}
+    <sitemap>
+        <loc>{{ url(item.uri) }}</loc>
+    </sitemap>
+{% endspaceless %}
+{% endif %}
+{% endblock %}

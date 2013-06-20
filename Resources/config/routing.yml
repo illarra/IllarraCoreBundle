@@ -1,0 +1,13 @@
+illarra_seo:
+    resource: "@IllarraCoreBundle/Controller/SeoController.php"
+    type:     annotation
+    prefix:   /
+    options:
+        i18n: false
+
+illarra_admin:
+    resource: "@IllarraCoreBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin
+    options:
+        i18n: false

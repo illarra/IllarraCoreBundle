@@ -1,0 +1,87 @@
+format:
+    date:           Y-m-d
+    datetime:       Y-m-d H:i
+
+menu:
+    dashboard:      Dashboarda
+    analytics:      Analytics
+    contact:        Kontaktua
+    users:          Erabiltzaileak
+    logs:           Logak
+
+title:
+    admin:          Administrazio gunea
+    dashboard:      Dashboarda
+    analytics:      Google Analytics laburpena
+    contact:        Gurekin kontaktatu
+    logs:           Logak
+
+subheader:
+    login:          Idatzi hemen zure erabiltzaile eta pasahitza administrazio gunean sartu ahal izateko.
+    403:            "Sarbidea ukatuta. %s helbidean sartzen saiatu zara, baina ez duzu orri hau ikusteko beharrezko baimenik. Jar zaitez zure administratzailearekin edo gurekin harremanetan zer gertatu ote den ikusteko."
+    contact:        "Gure bezeroekin komunikazio irekia mantendu nahi dugu beraien internet estrategia errealitate bihurtu ahal izateko. Zuri laguntzeko gaude hemen, beraz lasai jarri gurekin kontaktuan."
+    analytics:      "Laster ikusi ahal izango duzu zure Google Analytics profilaren informazioaren laburpen bat hemen. Adi egon!"
+
+#
+# Actions
+#
+
+action:
+    login:          Logeatu
+    logout:         Irten
+    back:           Atzera
+    delete:         Ezabatu
+    edit:           Editatu
+    new:            Berria
+    save:           Gorde
+    select:         Aukeratu
+    selectAll:      Guztiak aukeratu
+    show:           Ikusi
+    addNewLocale:   Hizkuntza berria gehitu
+    deleteAll:      Sarrerak ezabatu
+    sort:           Berantolatu
+    search:         Bilatu
+
+page:
+    previous:       Aurreko orrialdea
+    next:           Hurrengo orrialdea
+    range:          %1$s-%2$s (%3$s guztira)
+
+public:
+    link:           Esteka publikoa
+
+#
+# Global labels
+#
+
+label:
+    username:       Erabiltzailea
+    password:       Pasahitza
+    telephone:      Telefonoa
+    email:          Emaila
+    newLocale:      Hizkuntza berria
+    createdAt:      Sortze-data
+    updatedAt:      Eguneratze-data
+    createdBy:      Sortzailea
+    updatedBy:      Eguneratuta
+    isFeatured:     Destacado
+    isVisible:      Visible
+    point:          Kokapena
+
+layout:
+    table:          Zerrenda moduan
+    grid:           Detailedun bista
+
+toggle:
+    isFeatured:     isFeatured
+    isVisible:      isVisible
+
+placeholder:
+    chosen:
+        one:        Aukeratu bat
+        multiple:   Aukeratu bat edo gehiago
+        no_results: Ez da emaitzarik aurkitu
+
+# Error messages at login
+
+'Bad credentials': 'Erabiltzailea edo pasahitza ez dira zuzenak'

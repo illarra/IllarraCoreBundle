@@ -1,0 +1,33 @@
+{{ '{% extends "IllarraCoreBundle:Admin:layout.html.twig" %}' }}
+
+{{ '{% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}' }}
+
+{{ '{% trans_default_domain "illarra_admin" %}' }}
+
+{{ "{% block content %}" }}
+{% set hide_edit, hide_delete = false, true %}
+<div class="row">
+    <div class="large-12 columns">
+        {% include 'views/others/record_actions.html.twig.twig' %}
+        <hr class="dark" />
+        <h3>{{ "{{ '"~ entity|lower ~".title.show'|trans }}" }}</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="large-8 columns clean-section" {{ "{{ helper.data_entity(entity) }}" }}>
+{% for field, metadata in fields %}
+{% if field not in ['id', 'createdAt', 'updatedAt'] %}
+        <h5><i class="icon-angle-right"></i> {{ "{{ 'label."~ entity|lower ~"."~ field ~"'|trans }}" }}</h5>
+{% if metadata.type in ['date', 'datetime'] %}
+        <p>{{ "{{ entity."~ field|replace({'_': ''}) ~"|date('format."~ metadata.type ~"'|trans) }}" }}</p>
+{% else %}
+        <p>{{ "{{ entity."~ field|replace({'_': ''}) ~" }}" }}</p>
+{% endif %}
+{% endif %}
+{% endfor %}
+    </div>
+    <div class="large-4 columns">
+        {%- include "views/others/metadata.html.twig.twig" %}
+    </div>
+</div>
+{{ "{% endblock %}" }}

@@ -1,0 +1,217 @@
+// http://foundation.zurb.com/docs/
+
+//
+// Global variables
+//
+
+$default-float:      left;
+$default-opposite:   right;
+
+// This is the default html and body font-size for the base em value.
+$base-font-size:     100% !default;
+$em-base:            13px !default;
+
+@function emCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1em;
+}
+
+// We use these to control various global styles
+$body-bg:            #fff;
+$body-font-color:    #222;
+$body-font-family:   "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-weight:   normal;
+$body-font-style:    normal;
+
+// We use this to control font-smoothing
+$font-smoothing:     antialiased;
+
+// We use these to control text direction settings
+$text-direction:     ltr;
+
+// We use these as default colors throughout
+$primary-color:      #4787ed;
+$secondary-color:    #e9e9e9;
+$success-color:      #3d9400;
+$warning-color:      #fc0;
+$alert-color:        #d14836;
+$hover-color:        #fafafa;
+$hr-color:           #e5e5e5;
+$hr-dark-color:      #ccc;
+
+// We use these to make sure border radius matches unless we want it different.
+$global-radius:      2px;
+$global-rounded:     1000px;
+
+// We use these to control inset shadow shiny edges and depressions.
+$shiny-edge-size:    0 1px 0;
+$shiny-edge-color:   rgba(#fff, .5);
+$shiny-edge-active-color: rgba(#000, .2);
+
+// We use this to control whether or not CSS classes come through in the gem files.
+$include-html-classes: true;
+$include-print-styles: true;
+
+//
+// Grid
+//
+
+$small-screen:       emCalc(800px);
+$medium-screen:      emCalc(1280px);
+$large-screen:       emCalc(1440px);
+
+$small: "only screen and (min-width:"#{$small-screen}")";
+$medium: "only screen and (min-width:"#{$medium-screen}")";
+$large: "only screen and (min-width:"#{$large-screen}")";
+
+$row-width:          emCalc(1140px);
+$column-gutter:      emCalc(40px);
+$total-columns:      12;
+
+//
+// Padding
+//
+
+$base-padding:       $column-gutter / 2;
+$half-padding:       $base-padding / 2;
+$quarter-padding:    $half-padding / 2;
+
+//
+// Block grid
+//
+
+// $block-grid-elements: 12;
+// $block-grid-default-spacing: 10px;
+
+//
+// Top Bar
+//
+
+$topbar-height:      50px;
+$topbar-bg:          #333;
+$topbar-link-font-size: emCalc(14px);
+$topbar-margin-bottom: $column-gutter;
+$topbar-title-weight: 400;
+
+$topbar-breakpoint:  $medium-screen;
+$topbar-media-query: $small;
+
+//
+// Section
+//
+
+$section-title-bg:   lighten(#f0f0f0, 10%);
+$section-title-bg-active: #f0f0f0;
+$section-padding:    0;
+
+//
+// Type
+//
+
+$header-font-family: $body-font-family;
+$header-font-color:  $body-font-color;
+$header-font-weight: 300;
+$header-line-height: 1.2;
+$header-bottom-margin: .8em;
+
+$h1-font-size:       emCalc(40px);
+$h2-font-size:       emCalc(34px);
+$h3-font-size:       emCalc(28px);
+$h4-font-size:       emCalc(22px);
+$h5-font-size:       emCalc(17px);
+$h6-font-size:       1em;
+
+$subheader-font-color:  lighten($header-font-color, 25%);
+$subheader-font-weight: 300;
+
+$small-font-size:    80%;
+$small-font-color:   $subheader-font-color;
+
+//
+// Forms 
+//
+
+$label-font-size:      emCalc(13px);
+$label-font-weight:    normal;
+$label-bottom-margin:  emCalc(5px);
+$input-font-size:      emCalc(13px);
+$input-focus-bg-color: darken(#fff, 0.5%);
+$form-spacing:         1em;
+
+//
+// Buttons
+//
+
+$button-med:         emCalc(10px);
+$button-tny:         emCalc(7px);
+$button-sml:         emCalc(9px);
+$button-lrg:         emCalc(12px);
+
+$button-font-med:    emCalc(12px);
+$button-font-tny:    emCalc(10px);
+$button-font-sml:    emCalc(11px);
+$button-font-lrg:    emCalc(15px);
+
+//
+// Tooltips
+//
+
+$has-tip-border-bottom:       '';
+$has-tip-border-bottom-hover: '';
+$has-tip-cursor-type:         pointer;
+
+$tooltip-padding:             $quarter-padding $half-padding;
+$tooltip-bg:                  #000;
+$tooltip-font-size:           emCalc(11px);
+
+//
+// Panels
+//
+
+$panel-bg:              #f7f7f9;
+$panel-border-style:    solid;
+$panel-border-size:     1px;
+
+$panel-function-factor: 10%;
+$panel-border-color:    $primary-color;
+
+$panel-margin-bottom:   $base-padding;
+$panel-padding:         $half-padding $base-padding;
+
+$panel-font-color:      #333;
+$panel-font-color-alt:  #fff;
+
+
+
+
+
+
+// Button Settings
+
+$btnBase: 7px;
+
+$smallBtnBase: $btnBase - 2;
+$tinyBtnBase: $btnBase - 4;
+$largeBtnBase: $btnBase + 4;
+
+// Form Settings
+
+$formSpacing: 12px;
+// $labelFontWeight: 500;
+// $labelFontColor: lighten(#000, 30%);
+// $labelBtmMargin: 3px;
+$inputFontColor: rgba(0,0,0,0.75);
+$inputFontSize: 14px;
+$inputBgColor: #fff;
+// $inputFocusBgColor: darken(#fff, 2%);
+$inputBorderColor: darken(#fff, 20%);
+$inputFocusBorderColor: darken(#fff, 30%);
+$inputBorderStyle: solid;
+$inputBorderWidth: 1px;
+$inputBorderRadius: 2px;
+// $fieldsetBorderRadius: 3px;
+
+$tabHeight: 32px;
+
+
+
+

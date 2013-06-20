@@ -1,0 +1,24 @@
+services:
+    kernel.listener.admin_locale:
+        class: Illarra\CoreBundle\EventListener\AdminLocaleListener
+        arguments: [%illarra_core.admin.locale%]
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+    kernel.listener.admin_toolbar:
+        class: Illarra\CoreBundle\EventListener\AdminToolbarListener
+        arguments: [@twig]
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+    illarra_core.twig.configuration_extension:
+        class: Illarra\CoreBundle\Twig\ConfigurationExtension
+        arguments: [@service_container]
+        tags:
+            - { name: twig.extension }
+    illarra_core.twig.classify_extension:
+        class: Illarra\CoreBundle\Twig\ClassifyExtension
+        tags:
+            - { name: twig.extension }
+    illarra_core.type.point:
+        class: Illarra\CoreBundle\Form\Type\PointType
+        tags:
+            - { name: form.type, alias: point }

@@ -1,0 +1,10 @@
+{{ '{% trans_default_domain "illarra_admin" %}' }}
+
+<form action="{{ "{{ action }}" }}" method="POST" {{ "{{ form_enctype(form) }}" }}>
+    {{ "{% if 'PUT' == method %}" }}<input type="hidden" name="_method" value="PUT" />{{ "{% endif %}" }}
+    {{ "{{ form_rest(form) }}" }}
+    <hr />
+    <p>
+        <button class="radius button" type="submit">{{ "{{ 'action.save'|trans }}" }}</button>
+    </p>
+</form>

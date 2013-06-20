@@ -1,0 +1,8 @@
+User-agent: *
+{% if app.environment != 'prod' -%}
+Disallow: /
+{%- else -%}
+Allow: /
+
+Sitemap: {{ url('illarra_seo_sitemap') }}
+{%- endif %}

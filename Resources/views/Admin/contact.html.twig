@@ -1,0 +1,50 @@
+{% extends "IllarraCoreBundle:Admin:layout.html.twig" %}
+
+{% trans_default_domain "illarra_admin" %}
+
+{% block content %}
+<div class="row">
+    <div class="large-12 columns">
+        <h3>{{ 'title.contact'|trans }}</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="large-6 columns">
+        <h5 class="subheader">{{ 'subheader.contact'|trans }}</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="large-6 columns">
+        <hr />
+        <div class="row">
+            <div class="small-3 columns">
+                <p><img class="rounded avatar" src="http://dgalywyr863hv.cloudfront.net/pictures/athletes/19995/451679/1/large.jpg" /></p>
+            </div>
+            <div class="small-9 columns">
+                <ul class="no-bullet">
+                    <li><h5>Eneko (eillarra)</h5></li>
+                    <li><a href="mailto:eneko@illarra.com"><i class="icon-envelope-alt"></i>&nbsp; eneko@illarra.com</a></li>
+                    <li><a href="http://linkedin.com/in/eillarra"><i class="icon-linkedin-sign"></i>&nbsp; linkedin.com/in/eillarra</a></li>
+                    <li><a href="tel:+32476066387"><i class="icon-phone"></i>&nbsp; +32 476 06 63 87</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="large-6 columns">
+        <hr class="hide-for-small" />
+        <div class="row">
+            <div class="small-3 columns">
+                <p><img class="rounded avatar" src="http://dgalywyr863hv.cloudfront.net/pictures/athletes/1637539/451755/1/large.jpg" /></p>
+            </div>
+            <div class="small-9 columns">
+                <ul class="no-bullet">
+                    <li><h5>Asier (doup)</h5></li>
+                    <li><a href="mailto:asier@illarra.com"><i class="icon-envelope-alt"></i>&nbsp; asier@illarra.com</a></li>
+                    <li><a href="http://linkedin.com/in/aillarra"><i class="icon-linkedin-sign"></i>&nbsp; linkedin.com/in/aillarra</a></li>
+                    <li><a href="tel:+34678271450"><i class="icon-phone"></i>&nbsp; +34 678 27 14 50</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

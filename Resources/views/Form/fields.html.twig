@@ -1,0 +1,158 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_label %}
+{% spaceless %}
+    {% set translation_domain = 'illarra_admin' %}
+    {% if label is not sameas(false) %}
+        {% if not compound %}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {% endif %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if label is empty %}
+            {% set label = 'label.'~ name %}
+        {% endif %}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}
+            {%- if required %} <b class="color-alert">*</b>{%- endif -%}
+        </label>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block checkbox_row %}
+{% spaceless %}
+   <div style="margin-bottom: 1em;" class="checkbox-container">
+        {{ form_widget(form) }} {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {% if help is defined %}
+            <p class="help">{{ help|raw }}</p>
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endblock checkbox_row %}
+
+{% block choice_widget %}
+{% spaceless %}
+    {% set placeholder = 'placeholder.chosen.one'|trans({}, 'illarra_admin') %}
+    {% if multiple %}
+        {% set placeholder = 'placeholder.chosen.multiple'|trans({}, 'illarra_admin') %}
+    {% endif %}
+    {% set attr = attr|merge({
+        'class': (attr.class|default('') ~ ' js-chosen')|trim,
+        'data-placeholder': placeholder,
+        'data-no_results_text': 'placeholder.chosen.no_results'|trans({}, 'illarra_admin')
+    }) %}
+    {{ parent() }}
+{% endspaceless %}
+{% endblock choice_widget %}
+
+{% block datetime_widget %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {{ block('form_widget_simple') }}
+    {% else %}
+        <div {{ block('widget_container_attributes') }}>
+            <div class="row">
+                <div class="large-6 columns">
+                    {{ form_widget(form.date) }}
+                </div>
+                <div class="large-6 columns">
+                    {{ form_widget(form.time) }}
+                </div>
+            </div>
+        </div>
+        <div class="large-12 columns">
+            {{ form_errors(form.date) }}
+            {{ form_errors(form.time) }}
+        </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock datetime_widget %}
+
+{% block date_widget %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {{ block('form_widget_simple') }}
+    {% else %}
+        <div {{ block('widget_container_attributes') }}>
+            <div class="row">
+                <div class="small-4 large-4 columns">{{ form_widget(form.year) }}</div>
+                <div class="small-4 large-4 columns">{{ form_widget(form.month) }}</div>
+                <div class="small-4 large-4 columns">{{ form_widget(form.day) }}</div>
+            </div>
+        </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock date_widget %}
+
+{% block money_widget %}
+{% spaceless %}
+    <div class="row collapse">
+        <div class="small-9 large-10 columns">
+          {{ block('form_widget_simple') }}
+        </div>
+        <div class="small-3 large-2 columns">
+          <span class="postfix radius">{{ money_pattern|replace({'{{ widget }}': ''})|trim }}</span>
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock money_widget %}
+
+{% block percent_widget %}
+{% spaceless %}
+    {% set type = type|default('text') %}
+    <div class="row collapse">
+        <div class="small-9 large-10 columns">
+          {{ block('form_widget_simple') }}
+        </div>
+        <div class="small-3 large-2 columns">
+          <span class="postfix radius">%</span>
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock percent_widget %}
+
+{% block time_widget %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {{ block('form_widget_simple') }}
+    {% else %}
+        <div {{ block('widget_container_attributes') }}>
+            <div class="row">
+                <div class="small-4 large-4 columns">{{ form_widget(form.hour, { 'attr': { 'size': '1' } }) }}</div>
+                {% if with_minutes %}<div class="small-4 large-4 columns end">{{ form_widget(form.minute, { 'attr': { 'size': '1' } }) }}</div>{% endif %}
+                {% if with_seconds %}<div class="small-4 large-4 columns end">{{ form_widget(form.second, { 'attr': { 'size': '1' } }) }}</div>{% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock time_widget %}
+
+{% block point_widget %}
+{% spaceless %}
+<div class="section">
+    <h5 class="title">
+        <a href="#">
+            <i class="icon-section-indicator"></i> {{ 'label.point'|trans({}, 'illarra_admin') }}
+        </a>
+    </h5>
+    <div id="{{ id }}_container" class="content map-content">
+        <div class="row collapse">
+            <div class="small-9 columns">
+                <input type="text" id="{{ id }}_address" data-map-address />
+            </div>
+            <div class="small-3 columns">
+                <button id="{{ id }}_search" class="secondary postfix button" data-map-search>
+                    {{ 'action.search'|trans({}, 'illarra_admin') }}
+                </button>
+            </div>
+        </div>
+        <div id="{{ id }}_map_canvas" class="map-canvas" data-map></div>
+        <div id="{{ id }}_error"></div>
+        <input type="text" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}data-map-point />
+    </div>
+</div>
+{% endspaceless %}
+{% endblock %}
+

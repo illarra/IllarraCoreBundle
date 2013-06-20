@@ -1,0 +1,9 @@
+{% extends 'IllarraCoreBundle:Menu:foundation_top_bar.html.twig' %}
+
+{% block label %}
+{% if options.allow_safe_labels and item.getExtra('safe_label', false) -%}
+    {{ item.label|raw|trans({}, item.getExtra('translation_domain', 'illarra_admin')) }}
+{%- else -%}
+    {{ item.label|trans({}, item.getExtra('translation_domain', 'illarra_admin')) }}
+{%- endif %}
+{% endblock %}
