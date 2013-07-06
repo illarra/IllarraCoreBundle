@@ -1,7 +1,6 @@
 {% macro action_back_button(url) %}
 {% spaceless %}
-    <a href="{{ url }}" class="t-back has-tip noradius secondary button"
-        data-tooltip title="{{ 'action.back'|trans({}, 'illarra_admin') }}">
+    <a href="{{ url }}" class="t-back secondary button">
         <i class="icon-arrow-left"></i>
     </a>
 {% endspaceless %}
@@ -25,8 +24,7 @@
 
 {% macro action_delete_all_button() %}
 {% spaceless %}
-    <a href="#" class="t-delete-all has-tip noradius secondary button"
-        data-tooltip title="{{ 'action.deleteAll'|trans({}, 'illarra_admin') }}">
+    <a href="#" class="t-delete-all secondary button">
         <i class="icon-remove"></i>
     </a>
 {% endspaceless %}
@@ -34,8 +32,7 @@
 
 {% macro action_select_button() %}
 {% spaceless %}
-    <a href="#" class="has-tip noradius secondary button js-check-all"
-        data-tooltip title="{{ 'action.selectAll'|trans({}, 'illarra_admin') }}">
+    <a href="#" class="t-check-all secondary button">
         <i class="icon-check-empty"></i>
     </a>
 {% endspaceless %}
@@ -43,8 +40,7 @@
 
 {% macro action_filter_button() %}
 {% spaceless %}
-    <a href="#" class="t-filter has-tip noradius secondary button"
-        data-tooltip title="{{ 'action.search'|trans({}, 'illarra_admin') }}">
+    <a href="#" class="t-filter secondary button">
         <i class="icon-search"></i>
     </a>
 {% endspaceless %}
@@ -89,8 +85,7 @@
             <i class="icon-chevron-left"></i>
         </a>
     {% else %}
-        <a href="{{ path(route, {'page': (page - 1)}) }}" class="has-tip noradius compact secondary button"
-            data-tooltip title="{{ 'page.previous'|trans({}, 'illarra_admin') }}">
+        <a href="{{ path(route, {'page': (page - 1)}) }}" class="compact secondary button">
             <i class="icon-chevron-left"></i>
         </a>
     {% endif %}
@@ -104,8 +99,7 @@
             <i class="icon-chevron-right"></i>
         </a>
     {% else %}
-        <a href="{{ path(route, {'page': (page + 1)}) }}" class="has-tip noradius compact secondary button"
-            data-tooltip title="{{ 'page.next'|trans({}, 'illarra_admin') }}">
+        <a href="{{ path(route, {'page': (page + 1)}) }}" class="compact secondary button">
             <i class="icon-chevron-right"></i>
         </a>
     {% endif %}
@@ -114,9 +108,8 @@
 
 {% macro layout_table_button() %}
 {% spaceless %}
-    <a href="#" class="has-tip noradius compact secondary button"
-        data-table-view-list
-        data-tooltip title="{{ 'layout.table'|trans({}, 'illarra_admin') }}">
+    <a href="#" class="compact secondary button"
+        data-table-view-list>
         <i class="icon-align-justify"></i>
     </a>
 {% endspaceless %}
@@ -124,9 +117,8 @@
 
 {% macro layout_grid_button() %}
 {% spaceless %}
-    <a href="#" class="has-tip noradius pressed compact secondary button"
-        data-table-view-block-grid
-        data-tooltip title="{{ 'layout.grid'|trans({}, 'illarra_admin') }}">
+    <a href="#" class="pressed compact secondary button"
+        data-table-view-block-grid>
         <i class="icon-th-large"></i>
     </a>
 {% endspaceless %}
