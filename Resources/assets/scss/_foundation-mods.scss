@@ -26,7 +26,9 @@ textarea {
 }
 
 .choice-expanded {
-    margin-bottom: 1em;
+    .columns:last-child {
+        margin-bottom: 1em;
+    }
 
     input {
         margin-right: 1em;

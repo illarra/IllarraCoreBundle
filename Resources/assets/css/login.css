@@ -2815,70 +2815,70 @@ textarea {
   min-height: 110px;
 }
 
-/* line 28, ../scss/_foundation-mods.scss */
-.choice-expanded {
+/* line 29, ../scss/_foundation-mods.scss */
+.choice-expanded .columns:last-child {
   margin-bottom: 1em;
 }
-/* line 31, ../scss/_foundation-mods.scss */
+/* line 33, ../scss/_foundation-mods.scss */
 .choice-expanded input {
   margin-right: 1em;
 }
-/* line 35, ../scss/_foundation-mods.scss */
+/* line 37, ../scss/_foundation-mods.scss */
 .choice-expanded label {
   display: inline-block;
 }
 
-/* line 44, ../scss/_foundation-mods.scss */
+/* line 46, ../scss/_foundation-mods.scss */
 .top-bar-wrapper {
   background: #333333;
   margin-bottom: 1.53846em;
 }
 @media only screen and (min-width: 61.53846em) {
-  /* line 44, ../scss/_foundation-mods.scss */
+  /* line 46, ../scss/_foundation-mods.scss */
   .top-bar-wrapper {
     margin-bottom: 3.07692em;
   }
 }
 
 @media only screen and (min-width: 61.53846em) {
-  /* line 58, ../scss/_foundation-mods.scss */
+  /* line 60, ../scss/_foundation-mods.scss */
   .top-bar-section .has-dropdown:hover > a:not(.button), .top-bar-section .has-dropdown:active > a:not(.button) {
     background-color: #4787ed;
   }
-  /* line 63, ../scss/_foundation-mods.scss */
+  /* line 65, ../scss/_foundation-mods.scss */
   .top-bar-section .has-dropdown:hover > .dropdown li a, .top-bar-section .has-dropdown:active > .dropdown li a {
     background-color: #4787ed;
   }
-  /* line 67, ../scss/_foundation-mods.scss */
+  /* line 69, ../scss/_foundation-mods.scss */
   .top-bar-section .has-dropdown:hover > .dropdown li a:hover, .top-bar-section .has-dropdown:hover > .dropdown li a:active, .top-bar-section .has-dropdown:active > .dropdown li a:hover, .top-bar-section .has-dropdown:active > .dropdown li a:active {
     background: #1969e8;
   }
-  /* line 73, ../scss/_foundation-mods.scss */
+  /* line 75, ../scss/_foundation-mods.scss */
   .top-bar-section .has-dropdown:hover .divider, .top-bar-section .has-dropdown:active .divider {
     border-bottom: solid 1px #75a5f2;
     border-top: solid 1px #1969e8;
   }
 }
-/* line 86, ../scss/_foundation-mods.scss */
+/* line 88, ../scss/_foundation-mods.scss */
 .alert-box {
   line-height: 1.2;
 }
 
-/* line 90, ../scss/_foundation-mods.scss */
+/* line 92, ../scss/_foundation-mods.scss */
 hr {
   margin: 1.53846em 0;
   border-color: #e5e5e5;
 }
-/* line 94, ../scss/_foundation-mods.scss */
+/* line 96, ../scss/_foundation-mods.scss */
 hr.dark {
   border-color: #cccccc;
 }
 
-/* line 104, ../scss/_foundation-mods.scss */
+/* line 106, ../scss/_foundation-mods.scss */
 .button-bar form {
   margin: 0;
 }
-/* line 109, ../scss/_foundation-mods.scss */
+/* line 111, ../scss/_foundation-mods.scss */
 .button-bar .radius button {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -2886,37 +2886,37 @@ hr.dark {
   -o-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 114, ../scss/_foundation-mods.scss */
+/* line 116, ../scss/_foundation-mods.scss */
 .button-bar .page-range {
   float: right;
   line-height: 30px;
 }
 @media only screen and (min-width: 61.53846em) {
-  /* line 114, ../scss/_foundation-mods.scss */
+  /* line 116, ../scss/_foundation-mods.scss */
   .button-bar .page-range {
     float: left;
   }
 }
-/* line 123, ../scss/_foundation-mods.scss */
+/* line 125, ../scss/_foundation-mods.scss */
 .button-bar .button {
   margin-bottom: 0;
 }
-/* line 128, ../scss/_foundation-mods.scss */
+/* line 130, ../scss/_foundation-mods.scss */
 .button-bar.right .button-group {
   margin-left: 0.76923em;
   margin-right: 0;
 }
 
-/* line 135, ../scss/_foundation-mods.scss */
+/* line 137, ../scss/_foundation-mods.scss */
 .button {
   text-transform: uppercase;
 }
-/* line 138, ../scss/_foundation-mods.scss */
+/* line 140, ../scss/_foundation-mods.scss */
 .button.compact {
   padding-right: 0.76923em;
   padding-left: 0.76923em;
 }
-/* line 143, ../scss/_foundation-mods.scss */
+/* line 145, ../scss/_foundation-mods.scss */
 .button.pressed {
   background-color: #d0d0d0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2) inset;
@@ -2924,58 +2924,58 @@ hr.dark {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2) inset;
 }
 
-/* line 153, ../scss/_foundation-mods.scss */
+/* line 155, ../scss/_foundation-mods.scss */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-/* line 162, ../scss/_foundation-mods.scss */
+/* line 164, ../scss/_foundation-mods.scss */
 .small p, .small li {
   font-size: 0.9em;
 }
 
-/* line 167, ../scss/_foundation-mods.scss */
+/* line 169, ../scss/_foundation-mods.scss */
 .normal {
   font-weight: normal;
 }
 
-/* line 171, ../scss/_foundation-mods.scss */
+/* line 173, ../scss/_foundation-mods.scss */
 .uppercase {
   text-transform: uppercase;
 }
 
-/* line 177, ../scss/_foundation-mods.scss */
+/* line 179, ../scss/_foundation-mods.scss */
 .color-text {
   color: #222222;
 }
 
-/* line 181, ../scss/_foundation-mods.scss */
+/* line 183, ../scss/_foundation-mods.scss */
 .color-subheader,
 .color-text-light {
   color: #626262;
 }
 
-/* line 184, ../scss/_foundation-mods.scss */
+/* line 186, ../scss/_foundation-mods.scss */
 .color-text-lightest {
   color: #ddd;
 }
 
-/* line 187, ../scss/_foundation-mods.scss */
+/* line 189, ../scss/_foundation-mods.scss */
 .color-primary {
   color: #4787ed;
 }
 
-/* line 190, ../scss/_foundation-mods.scss */
+/* line 192, ../scss/_foundation-mods.scss */
 .color-success {
   color: #3d9400;
 }
 
-/* line 193, ../scss/_foundation-mods.scss */
+/* line 195, ../scss/_foundation-mods.scss */
 .color-alert {
   color: #d14836;
 }
 
-/* line 196, ../scss/_foundation-mods.scss */
+/* line 198, ../scss/_foundation-mods.scss */
 .color-warning {
   color: #ffcc00;
 }
