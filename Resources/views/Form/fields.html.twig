@@ -38,8 +38,13 @@
     {% if multiple %}
         {% set placeholder = 'placeholder.chosen.multiple'|trans({}, 'illarra_admin') %}
     {% endif %}
+    {% if expanded %}
+        {% set chosen = '' %}
+    {% else %}
+        {% set chosen = 'js-chosen' %}
+    {% endif %}
     {% set attr = attr|merge({
-        'class': (attr.class|default('') ~ ' js-chosen')|trim,
+        'class': (attr.class|default('') ~ chosen)|trim,
         'data-placeholder': placeholder,
         'data-no_results_text': 'placeholder.chosen.no_results'|trans({}, 'illarra_admin')
     }) %}
