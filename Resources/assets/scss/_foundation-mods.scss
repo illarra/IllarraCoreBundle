@@ -25,6 +25,18 @@ textarea {
     min-height: 110px;
 }
 
+.choice-expanded {
+    margin-bottom: 1em;
+
+    input {
+        margin-right: 1em;
+    }
+
+    label {
+        display: inline-block;
+    }
+}
+
 //
 // Top bar
 //

@@ -52,6 +52,21 @@
 {% endspaceless %}
 {% endblock choice_widget %}
 
+{% block choice_widget_expanded %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+        <div class="row collapse choice-expanded">
+            {% for child in form %}
+                <div class="large-12 columns">
+                    {{ form_widget(child) }}
+                    {{ form_label(child) }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock choice_widget_expanded %}
+
 {% block datetime_widget %}
 {% spaceless %}
     {% if widget == 'single_text' %}
