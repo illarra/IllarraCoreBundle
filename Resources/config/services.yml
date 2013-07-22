@@ -22,3 +22,12 @@ services:
         class: Illarra\CoreBundle\Form\Type\PointType
         tags:
             - { name: form.type, alias: point }
+    illarra_core.type.illarra_sonata_type_translation:
+        class: Illarra\CoreBundle\Form\Type\TranslationType
+        tags:
+            - { name: form.type, alias: illarra_sonata_translation }
+    illarra_core.admin.translation.extension:
+        class: Illarra\CoreBundle\Admin\Extension\Translation
+        arguments: ["%illarra_core.available_locales%"]
+        tags:
+            - { name: sonata.admin.extension }
