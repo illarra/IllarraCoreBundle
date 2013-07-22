@@ -42,7 +42,7 @@ class IllarraCoreExtension extends Extension implements PrependExtensionInterfac
                 // default global templates
                 'layout'    => 'SonataAdminBundle::standard_layout.html.twig',
                 'ajax'      => 'SonataAdminBundle::ajax_layout.html.twig',
-                'dashboard' => 'SonataAdminBundle:Core:dashboard.html.twig',
+                //'dashboard' => 'SonataAdminBundle:Core:dashboard.html.twig',
 
                 // default values of actions templates, they should extend global templates
                 'list'               => 'SonataAdminBundle:CRUD:list.html.twig',
