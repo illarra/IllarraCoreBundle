@@ -25,7 +25,7 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
                 ->scalarNode('default_locale')
-                    ->isRequired()
+                    ->defaultValue('eu')
                 ->end()
                 ->arrayNode('available_locales')
                     ->beforeNormalization()

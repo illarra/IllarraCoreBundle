@@ -23,7 +23,25 @@ class IllarraCoreExtension extends Extension implements PrependExtensionInterfac
         $loader->load('services.yml');
         
         // Set parameters
-        $container->setParameter('illarra_core.locales', $config['locales']);
+        $container->setParameter(
+            'illarra_core.locales',
+            array_merge(
+                [
+                    'ca' => 'Català',
+                    'de' => 'Deutsch',
+                    'en' => 'English',
+                    'es' => 'Castellano',
+                    'eo' => 'Esperanto',
+                    'eu' => 'Euskara',
+                    'fr' => 'Française',
+                    'gl' => 'Galego',
+                    'it' => 'Italiano',
+                    'nl' => 'Nederlands',
+                    'pt' => 'Português',
+                ],
+                $config['locales']
+            )
+        );
         $container->setParameter('illarra_core.default_locale', $config['default_locale']);
         $container->setParameter('illarra_core.available_locales', $config['available_locales']);
         $container->setParameter('illarra_core.active_locales', $config['active_locales']);
