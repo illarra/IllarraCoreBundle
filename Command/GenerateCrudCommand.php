@@ -16,7 +16,7 @@ class GenerateCrudCommand extends GenerateDoctrineCrudCommand
         $this->setName('illarra:generate:crud');
     }
     
-    protected function getGenerator(Symfony\Component\HttpKernel\Bundle\BundleInterface $bundle = null)
+    protected function getGenerator(Symfony\Component\HttpKernel\Bundle\BundleInterface $bundle = NULL)
     {
         if (null === $this->generator) {
             $this->generator = new CrudGenerator($this->getContainer()->get('filesystem'), __DIR__.'/../Resources/skeleton/crud');
