@@ -95,5 +95,11 @@ class IllarraCoreExtension extends Extension implements PrependExtensionInterfac
                 ]
             ]);
         }
+
+        $container->prependExtensionConfig('assetic', [
+            'bundles' => [
+                'IllarraCoreBundle',
+            ]
+        ]);
     }
 }
