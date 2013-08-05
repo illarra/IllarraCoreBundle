@@ -85,5 +85,15 @@ class IllarraCoreExtension extends Extension implements PrependExtensionInterfac
                 ]
             ]);
         }
+
+        if (isset($bundles['SonataDoctrineORMAdminBundle'])) {
+            $container->prependExtensionConfig('sonata_doctrine_orm_admin', [
+                'templates' => [
+                    'form' => [
+                        'IllarraCoreBundle:Sonata:Form/fields.html.twig',
+                    ],
+                ]
+            ]);
+        }
     }
 }
