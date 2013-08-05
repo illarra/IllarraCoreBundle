@@ -2,6 +2,7 @@
 
 namespace Illarra\CoreBundle\Command;
 
+use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Sensio\Bundle\GeneratorBundle\Command\GenerateDoctrineCrudCommand;
 use Illarra\CoreBundle\Generator\CrudGenerator;
 
@@ -16,7 +17,7 @@ class GenerateCrudCommand extends GenerateDoctrineCrudCommand
         $this->setName('illarra:generate:crud');
     }
     
-    protected function getGenerator(Symfony\Component\HttpKernel\Bundle\BundleInterface $bundle = NULL)
+    protected function getGenerator(BundleInterface $bundle = null)
     {
         if (null === $this->generator) {
             $this->generator = new CrudGenerator($this->getContainer()->get('filesystem'), __DIR__.'/../Resources/skeleton/crud');
