@@ -1,14 +1,16 @@
 form:
-    label_name:         Name
     label_address:      Address
-    label_telephone:    Telephone
-    label_email:        Email
-    label_translations: Translations
+    label_code:         Code
     label_description:  Description
+    label_email:        Email
+    label_name:         Name
+    label_telephone:    Telephone
+    label_translations: Translations
 list:
-    label_name:         Name
     label_address:      Address
-    label_telephone:    Telephone
-    label_email:        Email
-    label_translations: Translations
+    label_code:         Code
     label_description:  Description
+    label_email:        Email
+    label_name:         Name
+    label_telephone:    Telephone
+    label_translations: Translations

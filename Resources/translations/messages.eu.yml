@@ -1,14 +1,16 @@
 form:
-    label_name:         Izena
     label_address:      Helbidea
-    label_telephone:    Telefonoa
-    label_email:        Posta elektronikoa
-    label_translations: Itzulpenak
+    label_code:         Kodea
     label_description:  Deskribapena
+    label_email:        Posta elektronikoa
+    label_name:         Izena
+    label_telephone:    Telefonoa
+    label_translations: Itzulpenak
 list:
-    label_name:         Izena
     label_address:      Helbidea
-    label_telephone:    Telefonoa
-    label_email:        Posta elektronikoa
-    label_translations: Itzulpenak
+    label_code:         Kodea
     label_description:  Deskribapena
+    label_email:        Posta elektronikoa
+    label_name:         Izena
+    label_telephone:    Telefonoa
+    label_translations: Itzulpenak
