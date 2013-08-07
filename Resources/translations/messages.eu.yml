@@ -3,7 +3,11 @@ form:
     label_code:         Kodea
     label_description:  Deskribapena
     label_email:        Posta elektronikoa
+    label_end_at:       Bukaera
     label_name:         Izena
+    label_price:        Prezioa
+    label_start_at:     Hasiera
+    label_status:       Egoera
     label_telephone:    Telefonoa
     label_translations: Itzulpenak
 list:
@@ -11,6 +15,10 @@ list:
     label_code:         Kodea
     label_description:  Deskribapena
     label_email:        Posta elektronikoa
+    label_end_at:       Bukaera
     label_name:         Izena
+    label_price:        Prezioa
+    label_start_at:     Hasiera
+    label_status:       Egoera
     label_telephone:    Telefonoa
     label_translations: Itzulpenak

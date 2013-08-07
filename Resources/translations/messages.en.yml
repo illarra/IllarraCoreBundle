@@ -3,7 +3,11 @@ form:
     label_code:         Code
     label_description:  Description
     label_email:        Email
+    label_end_at:       End at
     label_name:         Name
+    label_price:        Price
+    label_start_at:     Start at
+    label_status:       Status
     label_telephone:    Telephone
     label_translations: Translations
 list:
@@ -11,6 +15,10 @@ list:
     label_code:         Code
     label_description:  Description
     label_email:        Email
+    label_end_at:       End at
     label_name:         Name
+    label_price:        Price
+    label_start_at:     Start at
+    label_status:       Status
     label_telephone:    Telephone
     label_translations: Translations
