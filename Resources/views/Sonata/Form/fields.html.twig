@@ -1,0 +1,15 @@
+{% block point_widget %}
+{% spaceless %}
+<div id="{{ id }}_container" class="well map-content">
+    <div class="controls controls-row">    
+        <input class="span10" type="text" id="{{ id }}_address" data-map-address>
+        <button id="{{ id }}_search" class="span2 btn" type="button" data-map-search>
+            {{ 'action.search'|trans({}, 'illarra_admin') }}
+        </button>
+    </div>
+    <div id="{{ id }}_map_canvas" class="map-canvas" data-map></div>
+    <div id="{{ id }}_error"></div>
+    <input type="text" class="input-block-level" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}data-map-point />
+</div>
+{% endspaceless %}
+{% endblock %}

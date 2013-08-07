@@ -1,0 +1,169 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+
+{% block stylesheets %}
+    <!-- jQuery code -->
+    <link rel="stylesheet" href="{{ asset('bundles/sonatajquery/themes/flick/jquery-ui-1.8.16.custom.css') }}" type="text/css" media="all" />
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,700" rel="stylesheet" type="text/css">
+    {% stylesheets
+        "@IllarraCoreBundle/Resources/assets/vendor/chosen/chosen/chosen.css"
+    %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    <style>
+        h1 {
+            font-weight: 300;
+        }
+        body {
+            color: #000;
+            font-size: 13px;
+            font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        }
+        .navbar-inverse .navbar-inner {
+            background: #333333;
+        }
+        .navbar-fixed-top {
+            position: static;
+            margin-bottom: 30px;
+        }
+        .navbar .brand {
+            color: white;
+            font-size: 17px;
+            font-weight: 300;
+            text-shadow: none;
+        }
+        .map-content .map-canvas {
+            height: 300px;
+            width: 100%;
+        }
+        .map-content .map-canvas img {
+            max-width: none !important;
+        }
+        .map-content .postfix {
+            height: 2.5em;
+        }
+        .subheader-color {
+            color: #626262;
+        }
+        .sonata-actions {
+            margin-bottom: 20px;
+            float: right; /* remove float in mobile */
+        }
+        table tr:hover {
+            background-color: #fafafa;
+        }
+        .sonata-ba-list-field-header-batch {
+            width: 15px;
+        }
+        .breadcrumb {
+            font-size: 16px;
+            font-weight: 300;
+        }
+        .form-actions .btn {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .form-actions.well form {
+            margin: 0;
+        }
+        label.required:after {
+            content: " *";
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {#
+    "@IllarraCoreBundle/Resources/assets/js/vendor/custom.modernizr.js"
+    "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.js"
+    "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.topbar.js"
+    "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.section.js"
+    "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.reveal.js"
+    "@IllarraCoreBundle/Resources/assets/js/foundation/foundation.tooltips.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/chosen/chosen/chosen.jquery.js"
+    "@IllarraCoreBundle/Resources/assets/js/base.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.core.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.widget.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.mouse.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.sortable.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.draggable.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.resizable.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.button.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/development-bundle/ui/jquery.ui.dialog.js"
+    "@IllarraCoreBundle/Resources/assets/js/vendor/jquery.ui.touch-punch.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/jquery-markedit/jquery.markedit.js"
+    "@IllarraCoreBundle/Resources/assets/vendor/jquery-markedit/showdown.js"
+    #}
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    {% javascripts
+        "@IllarraCoreBundle/Resources/assets/vendor/chosen/chosen/chosen.jquery.js"
+        "@IllarraCoreBundle/Resources/assets/js/image.js"
+        "@IllarraCoreBundle/Resources/assets/js/map.js"
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script type="text/javascript">
+        $(function () {
+            $('.container-fluid').removeClass('container-fluid').addClass('container');
+            $('.navbar').addClass('navbar-inverse');
+            $('table.table-bordered.table-striped').removeClass('table-bordered').removeClass('table-striped');
+            $('.sonata-filter-form').addClass('well');
+            $('.filter_container .btn').addClass('btn-small');
+            $('.form-horizontal').removeClass('form-horizontal');
+            $('.form-actions .btn-primary').toggleClass('btn-primary btn-success');
+
+            // Chosen
+            $('.sonata-ba-form select').chosen({ 
+                allow_single_deselect: true,
+                disable_search_threshold: 10,
+                no_results_text: "Oops, nothing found!"
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block sonata_nav_menu %}
+    {{ parent() }}
+    <ul class="nav pull-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-user icon-white"></i>
+                {# {{ app.user.username }} #}doup** <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#"><i class="icon-globe"></i> {{ app.request.locale }}</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Castellano</a></li>
+                        <li><a href="#">Euskara</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="icon-list"></i> {{ 'menu.logs'|trans }}</a></li>
+                <li><a href="#"><i class="icon-off"></i> {{ 'action.logout'|trans }}</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block logo %}
+    <a href="{{ url('sonata_admin_dashboard') }}" class="brand">
+        {{ admin_pool.title|lower }}
+    </a>
+{% endblock %}
+
+{% block footer %}
+    <div class="row-fluid">
+        <div class="span12">
+            <hr />
+            <small class="subheader-color">
+                &copy; {{ "now"|date("Y") }}, <strong>illarra</strong>. Zarautz, Barcelona, Gent.
+            </small>
+        </div>
+    </div>
+    <br />
+    <br />
+{% endblock %}

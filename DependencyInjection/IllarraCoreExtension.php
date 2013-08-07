@@ -59,29 +59,29 @@ class IllarraCoreExtension extends Extension implements PrependExtensionInterfac
             $container->prependExtensionConfig('sonata_admin', [
                 'templates' => [
                     // default global templates
-                    'layout'    => 'SonataAdminBundle::standard_layout.html.twig',
-                    'ajax'      => 'SonataAdminBundle::ajax_layout.html.twig',
-                    'dashboard' => 'SonataAdminBundle:Core:dashboard.html.twig',
+                    'layout'    => 'IllarraCoreBundle:Sonata:standard_layout.html.twig',
+                    // 'ajax'      => 'IllarraCoreBundle:Sonata:ajax_layout.html.twig',
+                    // 'dashboard' => 'IllarraCoreBundle:Sonata:Core/dashboard.html.twig',
 
                     // default values of actions templates, they should extend global templates
-                    'list'               => 'SonataAdminBundle:CRUD:list.html.twig',
-                    'show'               => 'SonataAdminBundle:CRUD:show.html.twig',
-                    'edit'               => 'SonataAdminBundle:CRUD:edit.html.twig',
-                    'history'            => 'SonataAdminBundle:CRUD:history.html.twig',
-                    'preview'            => 'SonataAdminBundle:CRUD:preview.html.twig',
-                    'delete'             => 'SonataAdminBundle:CRUD:delete.html.twig',
-                    'batch'              => 'SonataAdminBundle:CRUD:list__batch.html.twig',
-                    'batch_confirmation' => 'SonataAdminBundle:CRUD:batch_confirmation.html.twig',
+                    // 'list'               => 'IllarraCoreBundle:Sonata:CRUD/list.html.twig',
+                    // 'show'               => 'IllarraCoreBundle:Sonata:CRUD/show.html.twig',
+                    // 'edit'               => 'IllarraCoreBundle:Sonata:CRUD/edit.html.twig',
+                    // 'history'            => 'IllarraCoreBundle:Sonata:CRUD/history.html.twig',
+                    // 'preview'            => 'IllarraCoreBundle:Sonata:CRUD/preview.html.twig',
+                    // 'delete'             => 'IllarraCoreBundle:Sonata:CRUD/delete.html.twig',
+                    // 'batch'              => 'IllarraCoreBundle:Sonata:CRUD/list__batch.html.twig',
+                    // 'batch_confirmation' => 'IllarraCoreBundle:Sonata:CRUD/batch_confirmation.html.twig',
 
                     // list related templates
-                    'inner_list_row'  => 'SonataAdminBundle:CRUD:list_inner_row.html.twig',
-                    'base_list_field' => 'SonataAdminBundle:CRUD:base_list_field.html.twig',
+                    // 'inner_list_row'  => 'IllarraCoreBundle:Sonata:CRUD/list_inner_row.html.twig',
+                    // 'base_list_field' => 'IllarraCoreBundle:Sonata:CRUD/base_list_field.html.twig',
 
                     // default values of helper templates
-                    'short_object_description' => 'SonataAdminBundle:Helper:short-object-description.html.twig',
+                    // 'short_object_description' => 'IllarraCoreBundle:Sonata:Helper/short-object-description.html.twig',
 
                     // default values of block templates, they should extend the base_block template
-                    'list_block' => 'SonataAdminBundle:Block:block_admin_list.html.twig',
+                    // 'list_block' => 'IllarraCoreBundle:Sonata:Block/block_admin_list.html.twig',
                 ]
             ]);
         }
