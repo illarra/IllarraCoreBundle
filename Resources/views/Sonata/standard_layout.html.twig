@@ -6,11 +6,7 @@
 
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,700" rel="stylesheet" type="text/css">
-    {% stylesheets
-        "@IllarraCoreBundle/Resources/assets/vendor/chosen/chosen/chosen.css"
-    %}
-        <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
-    {% endstylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/illarracore/chosen-1.0.0/chosen.css') }}" type="text/css" media="all" />
     <style>
         h1 {
             font-weight: 300;
@@ -100,7 +96,7 @@
     #}
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     {% javascripts
-        "@IllarraCoreBundle/Resources/assets/vendor/chosen/chosen/chosen.jquery.js"
+        "@IllarraCoreBundle/Resources/public/chosen-1.0.0/chosen.jquery.js"
         "@IllarraCoreBundle/Resources/assets/js/image.js"
         "@IllarraCoreBundle/Resources/assets/js/map.js"
     %}
