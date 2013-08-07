@@ -16,6 +16,21 @@ class Translation extends AdminExtension
         $this->locales = $locales;
     }
 
+    protected function updateLabels(FormInterface $form)
+    {
+        foreach ($form as $field) {
+            $resolver = $field->getConfig()->getType()->getOptionsResolver();
+
+            $resolver->replaceDefaults(array(
+                'label' => 'form.label_xxx',
+            ));
+
+            if (!!count($field->all())) {
+                $this->updateLabels($field);
+            }
+        }
+    }
+
     public function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->getFormBuilder()->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event) {
@@ -35,5 +50,18 @@ class Translation extends AdminExtension
                 $entity->mergeNewTranslations();
             }
         });
+
+        /*
+        $formMapper->getFormBuilder()->addEventListener(FormEvents::POST_SET_DATA, function (FormEvent $event) {
+            $entity = $event->getData();
+
+            // Wait for the object to be ready
+            if (!is_null($entity)) {
+                // Change labels
+                $form = $event->getForm();
+                $this->updateLabels($form['translations']);
+            }
+        });
+        */
     }
 }

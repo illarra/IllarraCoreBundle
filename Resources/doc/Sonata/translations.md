@@ -29,3 +29,22 @@ class EntityAdmin extends Admin
 Create a form type for the `EntityTranslation` named `EntityTranslationType` on 
 the `Form` folder of the bundle. This form type is going to be used for the
 translation embedded forms.
+
+Remember to add the labels in the `EntityTranslationType`:
+
+```php
+class PlaceTranslationType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('locale', 'hidden')
+            ->add('name', null, ['label' => 'form.label_name'])
+            ->add('description', null, ['label' => 'form.label_description'])
+            // ...
+        ;
+    }
+
+    // ...
+}
+```

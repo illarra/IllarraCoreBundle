@@ -1,0 +1,14 @@
+form:
+    label_name:         Izena
+    label_address:      Helbidea
+    label_telephone:    Telefonoa
+    label_email:        Posta elektronikoa
+    label_translations: Itzulpenak
+    label_description:  Deskribapena
+list:
+    label_name:         Izena
+    label_address:      Helbidea
+    label_telephone:    Telefonoa
+    label_email:        Posta elektronikoa
+    label_translations: Itzulpenak
+    label_description:  Deskribapena
