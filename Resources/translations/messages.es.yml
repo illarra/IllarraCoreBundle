@@ -4,6 +4,7 @@ form:
     label_description:  Descripción
     label_email:        Email
     label_end_at:       Final
+    label_images:       Imágenes
     label_name:         Nombre
     label_price:        Precio
     label_start_at:     Inicio
@@ -16,6 +17,7 @@ list:
     label_description:  Descripción
     label_email:        Email
     label_end_at:       Final
+    label_images:       Imágenes
     label_name:         Nombre
     label_price:        Precio
     label_start_at:     Inicio

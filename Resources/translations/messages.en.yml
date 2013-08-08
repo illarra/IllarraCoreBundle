@@ -4,6 +4,7 @@ form:
     label_description:  Description
     label_email:        Email
     label_end_at:       End at
+    label_images:       Images
     label_name:         Name
     label_price:        Price
     label_start_at:     Start at
@@ -16,6 +17,7 @@ list:
     label_description:  Description
     label_email:        Email
     label_end_at:       End at
+    label_images:       Images
     label_name:         Name
     label_price:        Price
     label_start_at:     Start at
