@@ -9,7 +9,7 @@ trait Counter
      *
      * @ORM\Column(type="array", nullable=true)
      */
-    private $counter = [];
+    protected $counter = [];
     
     /**
      * @abstract

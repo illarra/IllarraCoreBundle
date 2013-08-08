@@ -9,7 +9,7 @@ trait Visible
      *
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isVisible;
+    protected $isVisible;
     
     /**
      * @param boolean $isVisible
