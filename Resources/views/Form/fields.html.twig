@@ -154,7 +154,7 @@
     {% trans_default_domain "illarra_admin" %}
     {% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}
 
-    <div>
+    <div class="section-container">
         {{ form_errors(form) }}
         <div class="section">
             <div class="hide" data-image-form-tpl data-prototype="{{
@@ -203,30 +203,54 @@
 {% endspaceless %}
 {% endblock gallery_row %}
 
-{% block point_widget %}
+{% block point_row %}
 {% spaceless %}
-<div class="section">
-    <h5 class="title">
-        <a href="#">
-            <i class="icon-section-indicator"></i> {{ 'label.point'|trans({}, 'illarra_admin') }}
-        </a>
-    </h5>
-    <div id="{{ id }}_container" class="content map-content">
-        <div class="row collapse">
-            <div class="small-9 columns">
-                <input type="text" id="{{ id }}_address" data-map-address />
-            </div>
-            <div class="small-3 columns">
-                <button id="{{ id }}_search" class="secondary postfix button" data-map-search>
-                    {{ 'action.search'|trans({}, 'illarra_admin') }}
-                </button>
+    <div class="section-container">
+        {{ form_errors(form) }}
+        <div class="section">
+            <h5 class="title">
+                <a href="#">
+                    <i class="icon-section-indicator"></i> {{ 'label.point'|trans({}, 'illarra_admin') }}
+                </a>
+            </h5>
+            <div id="{{ id }}_container" class="content map-content">
+                <div class="row collapse">
+                    <div class="small-9 columns">
+                        <input type="text" id="{{ id }}_address" data-map-address />
+                    </div>
+                    <div class="small-3 columns">
+                        <button id="{{ id }}_search" class="secondary postfix button" data-map-search>
+                            {{ 'action.search'|trans({}, 'illarra_admin') }}
+                        </button>
+                    </div>
+                </div>
+                <div id="{{ id }}_map_canvas" class="map-canvas" data-map></div>
+                <div id="{{ id }}_error"></div>
+                <input type="text" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}data-map-point />
             </div>
         </div>
-        <div id="{{ id }}_map_canvas" class="map-canvas" data-map></div>
-        <div id="{{ id }}_error"></div>
-        <input type="text" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}data-map-point />
     </div>
-</div>
 {% endspaceless %}
 {% endblock %}
 
+{% block translations_row %}
+{% spaceless %}
+    <div>
+        {{ form_errors(form) }}
+        {% for translation in form %}
+            <div class="section-container">
+                <div class="section">
+                    <h5 class="title">
+                        <a href="#{{ translation.locale.vars.value }}">
+                            <i class="icon-section-indicator"></i> {{ translation.locale.vars.value|upper }}
+                        </a>
+                    </h5>
+                    <div class="content">
+                        {{ form_rest(translation) }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endspaceless %}
+{% endblock %}
