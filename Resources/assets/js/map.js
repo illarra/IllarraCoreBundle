@@ -27,7 +27,9 @@ $(function () {
         });
 
         google.maps.event.addListener(marker, 'dragend', function () {
-            map.panTo(marker.getPosition());
+            setTimeout(function () {
+                map.panTo(marker.getPosition());
+            }, 500);
         });
     }
 
