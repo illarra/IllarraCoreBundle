@@ -22,3 +22,11 @@ services:
         class: Illarra\CoreBundle\Form\Type\PointType
         tags:
             - { name: form.type, alias: point }
+    illarra_core.type.gallery:
+        class: Illarra\CoreBundle\Form\Type\GalleryType
+        tags:
+            - { name: form.type, alias: gallery }
+    illarra_core.type.translations:
+        class: Illarra\CoreBundle\Form\Type\TranslationsType
+        tags:
+            - { name: form.type, alias: translations }
