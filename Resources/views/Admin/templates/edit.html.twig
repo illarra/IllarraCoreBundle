@@ -1,0 +1,43 @@
+{% extends "IllarraCoreBundle:Admin:layout.html.twig" %}
+
+{% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}
+
+{% trans_default_domain "illarra_admin" %}
+
+{% block content %}
+<div class="row">
+    <div class="large-12 columns">
+        <div class="button-bar">
+            <ul class="button-group radius">
+                <li>{{ helper.action_back_button(path(base_route ~'_index')) }}</li>
+            </ul>
+            <ul class="button-group radius">
+                <li>
+                    <form action="{{ path(base_route ~'_delete', { 'id': entity.id }) }}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        {{ form_widget(delete_form) }}
+                        <button class="t-delete alert button" type="submit">{{ 'action.delete'|trans }}</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <hr class="dark" />
+        <h3>{{ base_route ~'edit.title'|trans }}</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="large-8 columns">
+        {% include templates_folder ~':_form.html.twig'
+            with {
+                'action': path(base_route ~'_update', { 'id': entity.id }),
+                'method': 'PUT',
+                'form': edit_form
+            } only
+        %}
+    </div>
+    <div class="large-4 columns">
+        <hr class="show-for-small" />
+        {% block sidebar %}{% endblock %}
+    </div>
+</div>
+{% endblock %}
