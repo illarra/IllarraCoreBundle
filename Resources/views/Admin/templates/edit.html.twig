@@ -5,35 +5,47 @@
 {% trans_default_domain "illarra_admin" %}
 
 {% block content %}
+{% if entity.id %}
+    {% set title  = base_route ~'_edit.title' %}
+    {% set action = path(base_route ~'_update', { 'id': entity.id }) %}
+    {% set method = 'PUT' %}
+{% else %}
+    {% set title  = base_route ~'_new.title' %}
+    {% set action = path(base_route ~'_create') %}
+    {% set method = 'POST' %}
+{% endif %}
 <div class="row">
     <div class="large-12 columns">
         <div class="button-bar">
             <ul class="button-group radius">
                 <li>{{ helper.action_back_button(path(base_route ~'_index')) }}</li>
             </ul>
-            <ul class="button-group radius">
-                <li>
-                    <form action="{{ path(base_route ~'_delete', { 'id': entity.id }) }}" method="POST">
-                        <input type="hidden" name="_method" value="DELETE" />
-                        {{ form_widget(delete_form) }}
-                        <button class="t-delete alert button" type="submit">{{ 'action.delete'|trans }}</button>
-                    </form>
-                </li>
-            </ul>
+            {% if delete_form is defined %}
+                <ul class="button-group radius">
+                    <li>
+                        <form action="{{ path(base_route ~'_delete', { 'id': entity.id }) }}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE" />
+                            {{ form_widget(delete_form) }}
+                            <button class="t-delete alert button" type="submit">{{ 'action.delete'|trans }}</button>
+                        </form>
+                    </li>
+                </ul>
+            {% endif %}
         </div>
         <hr class="dark" />
-        <h3>{{ base_route ~'edit.title'|trans }}</h3>
+        <h3>{{ title|trans }}</h3>
     </div>
 </div>
 <div class="row">
     <div class="large-8 columns">
-        {% include templates_folder ~':_form.html.twig'
-            with {
-                'action': path(base_route ~'_update', { 'id': entity.id }),
-                'method': 'PUT',
-                'form': edit_form
-            } only
-        %}
+        <form action="{{ action }}" method="POST" {{ form_enctype(form) }} class="clean-section">
+            {% if 'PUT' == method %}<input type="hidden" name="_method" value="PUT" />{% endif %}
+            {{ form_rest(form) }}
+            <hr />
+            <p>
+                <button class="radius button" type="submit">{{ 'action.save'|trans }}</button>
+            </p>
+        </form>
     </div>
     <div class="large-4 columns">
         <hr class="show-for-small" />
