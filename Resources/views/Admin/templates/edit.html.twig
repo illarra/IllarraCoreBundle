@@ -47,9 +47,11 @@
             </p>
         </form>
     </div>
-    <div class="large-4 columns">
-        <hr class="show-for-small" />
-        {% block sidebar %}{% endblock %}
-    </div>
+    {% if entity.id %}
+        <div class="large-4 columns">
+            <hr class="show-for-small" />
+            {% block sidebar %}{% endblock %}
+        </div>
+    {% endif %}
 </div>
 {% endblock %}
