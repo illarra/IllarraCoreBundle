@@ -85,7 +85,7 @@
             <i class="icon-chevron-left"></i>
         </a>
     {% else %}
-        <a href="{{ path(route, {'page': (page - 1)}) }}" class="compact secondary button">
+        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge(app.request.query.all)|merge({'page': page - 1})) }}" class="compact secondary button">
             <i class="icon-chevron-left"></i>
         </a>
     {% endif %}
@@ -99,7 +99,7 @@
             <i class="icon-chevron-right"></i>
         </a>
     {% else %}
-        <a href="{{ path(route, {'page': (page + 1)}) }}" class="compact secondary button">
+        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge(app.request.query.all)|merge({'page': page + 1})) }}" class="compact secondary button">
             <i class="icon-chevron-right"></i>
         </a>
     {% endif %}
