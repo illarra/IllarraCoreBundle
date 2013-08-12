@@ -19,7 +19,8 @@ admin:
         search:       Search
         filter:       Filter
         or:           or
-        clear_filter: Clear
+        clearFilter:  Clear
+        galleryAdd:   Add new image
 
     admin:
         title: Admin area
@@ -51,11 +52,6 @@ admin:
         date:     m/d/Y
         datetime: m/d/Y H:i
 
-    gallery:
-        title: Images
-        action:
-            add: Add new image
-
     label:
         id:         ID
         name:       Name
@@ -73,6 +69,7 @@ admin:
         isVisible:  Visible
         point:      Location
         code:       Code
+        gallery:    Images
 
     list:
         title: List

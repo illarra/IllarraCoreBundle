@@ -19,7 +19,8 @@ admin:
         search:       Buscar
         filter:       Filtrar
         or:           o
-        clear_filter: Limpiar
+        clearFilter:  Limpiar
+        galleryAdd:   Añadir nueva imagen
 
     admin:
         title: Zona de administración
@@ -51,11 +52,6 @@ admin:
         date:     d/m/Y
         datetime: d/m/Y H:i
 
-    gallery:
-        title: Imágenes
-        action:
-            add: Añadir nueva imagen
-
     label:
         id:         ID
         name:       Nombre
@@ -73,6 +69,7 @@ admin:
         isVisible:  Visible
         point:      Localización
         code:       Código
+        gallery:    Imágenes
 
     list:
         title: Listar

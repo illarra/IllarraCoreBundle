@@ -19,7 +19,8 @@ admin:
         search:       Bilatu
         filter:       Filtratu
         or:           edo
-        clear_filter: Garbitu
+        clearFilter:  Garbitu
+        galleryAdd:   Irudi berria gehitu
 
     admin:
         title: Administrazio gunea
@@ -51,11 +52,6 @@ admin:
         date:     Y-m-d
         datetime: Y-m-d H:i
 
-    gallery:
-        title: Irudiak
-        action:
-            add: Irudi berria gehitu
-
     label:
         id:         ID
         name:       Izena
@@ -73,6 +69,7 @@ admin:
         isVisible:  Visible
         point:      Kokapena
         code:       Kodea
+        gallery:    Irudiak
 
     list:
         title: Zerrenda
