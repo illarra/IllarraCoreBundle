@@ -10,7 +10,7 @@
             {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
         {% endif %}
         {% if label is empty %}
-            {% set label = 'admin.label.'~ name %}
+            {% set label = name %}
         {% endif %}
         <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans }}
             {%- if required %} <b class="color-alert">*</b>{%- endif -%}
