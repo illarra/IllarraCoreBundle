@@ -17,6 +17,9 @@ admin:
         deleteAll:    Delete all
         sort:         Sort
         search:       Search
+        filter:       Filter
+        or:           or
+        clear_filter: Clear
 
     admin:
         title: Admin area
@@ -41,11 +44,17 @@ admin:
         menu:  Dashboard
         title: Dashboard
 
+    edit:
+        title: Edit
+
     format:
         date:     m/d/Y
         datetime: m/d/Y H:i
 
     label:
+        id:         ID
+        name:       Name
+        address:    Address
         username:   Username
         password:   Password
         telephone:  Telephone
@@ -59,12 +68,18 @@ admin:
         isVisible:  Visible
         point:      Location
 
+    list:
+        title: List
+
     login:
         subheader: Sign in with your username and password to access the administration area.
 
     logs:
         title: Logs
         menu:  Logs
+
+    new:
+        title: New
 
     # GARBITZEKO
 

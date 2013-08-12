@@ -17,6 +17,9 @@ admin:
         deleteAll:    Eliminar registros
         sort:         Reordenar
         search:       Buscar
+        filter:       Filtrar
+        or:           o
+        clear_filter: Limpiar
 
     admin:
         title: Zona de administración
@@ -41,11 +44,17 @@ admin:
         menu:  Panel de control
         title: Panel de control
 
+    edit:
+        title: Editar
+
     format:
         date:     d/m/Y
         datetime: d/m/Y H:i
 
     label:
+        id:         ID
+        name:       Nombre
+        address:    Dirección
         username:   Nombre de usuario
         password:   Contraseña
         telephone:  Teléfono
@@ -59,12 +68,18 @@ admin:
         isVisible:  Visible
         point:      Localización
 
+    list:
+        title: Listar
+
     login:
         subheader: Introduce tu nombre de usuario y contraseña para acceder a la zona de administración.
 
     logs:
         title: Logs
         menu:  Logs
+
+    new:
+        title: Nuevo
 
     # GARBITZEKO
 

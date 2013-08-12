@@ -17,6 +17,9 @@ admin:
         deleteAll:    Sarrerak ezabatu
         sort:         Berantolatu
         search:       Bilatu
+        filter:       Filtratu
+        or:           edo
+        clear_filter: Garbitu
 
     admin:
         title: Administrazio gunea
@@ -41,11 +44,17 @@ admin:
         menu:  Dashboarda
         title: Dashboarda
 
+    edit:
+        title: Editatu
+
     format:
         date:     Y-m-d
         datetime: Y-m-d H:i
 
     label:
+        id:         ID
+        name:       Izena
+        address:    Helbidea
         username:   Erabiltzailea
         password:   Pasahitza
         telephone:  Telefonoa
@@ -59,12 +68,18 @@ admin:
         isVisible:  Visible
         point:      Kokapena
 
+    list:
+        title: Zerrenda
+
     login:
         subheader: Idatzi hemen zure erabiltzaile eta pasahitza administrazio gunean sartu ahal izateko.
 
     logs:
         title: Logak
         menu:  Logak
+
+    new:
+        title: Sortu
 
     # GARBITZEKO
 
