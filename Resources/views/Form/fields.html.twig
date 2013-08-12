@@ -12,7 +12,7 @@
         {% if label is empty %}
             {% set label = name %}
         {% endif %}
-        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans }}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ ('admin.label.'~label)|trans }}
             {%- if required %} <b class="color-alert">*</b>{%- endif -%}
         </label>
     {% endif %}
