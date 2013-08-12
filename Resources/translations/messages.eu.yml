@@ -53,23 +53,24 @@ admin:
         datetime: Y-m-d H:i
 
     label:
-        id:         ID
-        name:       Izena
-        address:    Helbidea
-        username:   Erabiltzailea
-        password:   Pasahitza
-        telephone:  Telefonoa
-        email:      Emaila
-        newLocale:  Hizkuntza berria
-        createdAt:  Sortze-data
-        updatedAt:  Eguneratze-data
-        createdBy:  Sortzailea
-        updatedBy:  Eguneratuta
-        isFeatured: Destacado
-        isVisible:  Visible
-        point:      Kokapena
-        code:       Kodea
-        gallery:    Irudiak
+        id:          ID
+        name:        Izena
+        address:     Helbidea
+        username:    Erabiltzailea
+        password:    Pasahitza
+        telephone:   Telefonoa
+        email:       Emaila
+        newLocale:   Hizkuntza berria
+        createdAt:   Sortze-data
+        updatedAt:   Eguneratze-data
+        createdBy:   Sortzailea
+        updatedBy:   Eguneratuta
+        isFeatured:  Destacado
+        isVisible:   Visible
+        point:       Kokapena
+        code:        Kodea
+        gallery:     Irudiak
+        description: Deskribapena
 
     list:
         title: Zerrenda

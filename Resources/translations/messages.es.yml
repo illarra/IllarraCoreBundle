@@ -53,23 +53,24 @@ admin:
         datetime: d/m/Y H:i
 
     label:
-        id:         ID
-        name:       Nombre
-        address:    Dirección
-        username:   Nombre de usuario
-        password:   Contraseña
-        telephone:  Teléfono
-        email:      Email
-        newLocale:  Nuevo idioma
-        createdAt:  Creado
-        updatedAt:  Actualizado
-        createdBy:  Creado por
-        updatedBy:  Actualizado por
-        isFeatured: Destacado
-        isVisible:  Visible
-        point:      Localización
-        code:       Código
-        gallery:    Imágenes
+        id:          ID
+        name:        Nombre
+        address:     Dirección
+        username:    Nombre de usuario
+        password:    Contraseña
+        telephone:   Teléfono
+        email:       Email
+        newLocale:   Nuevo idioma
+        createdAt:   Creado
+        updatedAt:   Actualizado
+        createdBy:   Creado por
+        updatedBy:   Actualizado por
+        isFeatured:  Destacado
+        isVisible:   Visible
+        point:       Localización
+        code:        Código
+        gallery:     Imágenes
+        description: Descripción
 
     list:
         title: Listar

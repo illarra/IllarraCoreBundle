@@ -21,6 +21,7 @@ admin:
         or:           or
         clearFilter:  Clear
         galleryAdd:   Add new image
+        description:  Description
 
     admin:
         title: Admin area
