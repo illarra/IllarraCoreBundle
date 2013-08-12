@@ -51,6 +51,11 @@ admin:
         date:     Y-m-d
         datetime: Y-m-d H:i
 
+    gallery:
+        title: Irudiak
+        action:
+            add: Irudi berria gehitu
+
     label:
         id:         ID
         name:       Izena
@@ -67,6 +72,7 @@ admin:
         isFeatured: Destacado
         isVisible:  Visible
         point:      Kokapena
+        code:       Kodea
 
     list:
         title: Zerrenda

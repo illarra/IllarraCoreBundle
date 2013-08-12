@@ -51,6 +51,11 @@ admin:
         date:     d/m/Y
         datetime: d/m/Y H:i
 
+    gallery:
+        title: Imágenes
+        action:
+            add: Añadir nueva imagen
+
     label:
         id:         ID
         name:       Nombre
@@ -67,6 +72,7 @@ admin:
         isFeatured: Destacado
         isVisible:  Visible
         point:      Localización
+        code:       Código
 
     list:
         title: Listar

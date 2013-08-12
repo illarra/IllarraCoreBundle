@@ -51,6 +51,11 @@ admin:
         date:     m/d/Y
         datetime: m/d/Y H:i
 
+    gallery:
+        title: Images
+        action:
+            add: Add new image
+
     label:
         id:         ID
         name:       Name
@@ -67,6 +72,7 @@ admin:
         isFeatured: Destacado
         isVisible:  Visible
         point:      Location
+        code:       Code
 
     list:
         title: List
