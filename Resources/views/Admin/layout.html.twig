@@ -1,8 +1,5 @@
 {% extends "IllarraCoreBundle::base.html.twig" %}
-
 {% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}
-
-{% trans_default_domain "illarra_admin" %}
 
 {% block stylesheets %}
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,700' rel='stylesheet' type='text/css'>
@@ -55,7 +52,7 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 {% endblock %}
 
-{% block title %}{{ app.request.host }} - {{ 'title.admin'|trans }}{% endblock %}
+{% block title %}{{ app.request.host }} - {{ 'admin.admin.title'|trans }}{% endblock %}
 
 {% block body %}
 <div id="header" class="top-bar-wrapper">
@@ -75,34 +72,35 @@
                         <li class="has-dropdown">
                             <a href="#"><i class="icon-user" style="margin-left:-3px"></i> {{ app.user.username }}</a>
                             <ul class="dropdown auto-width">
-                                {#
                                 <li>
                                     <a href="{{ path('illarra_admin_index') }}">
-                                        <i class="icon-dashboard"></i>&nbsp; {{ 'menu.dashboard'|trans }}
+                                        <i class="icon-dashboard"></i>&nbsp; {{ 'admin.dashboard.menu'|trans }}
                                     </a>
                                 </li>
+                                {#
                                 <li>
                                     <a href="{{ path('illarra_admin_analytics') }}">
-                                        <i class="icon-bar-chart"></i>&nbsp; {{ 'menu.analytics'|trans }}
+                                        <i class="icon-bar-chart"></i>&nbsp; {{ 'admin.analytics.menu'|trans }}
                                     </a>
                                 </li>
+                                #}
                                 <li>
                                     <a href="{{ path('illarra_admin_contact') }}">
-                                        <i class="icon-envelope"></i>&nbsp; {{ 'menu.contact'|trans }}
+                                        <i class="icon-envelope"></i>&nbsp; {{ 'admin.contact.menu'|trans }}
                                     </a>
-                                </li>#}
+                                </li>
                                 {% if is_granted('ROLE_ADMIN') %}
                                     <li class="divider"></li>
                                     <li>
                                         <a href="{{ path('illarra_admin_logs') }}">
-                                            <i class="icon-warning-sign"></i>&nbsp; {{ 'menu.logs'|trans }}
+                                            <i class="icon-warning-sign"></i>&nbsp; {{ 'admin.logs.menu'|trans }}
                                         </a>
                                     </li>
                                 {% endif %}
                                 <li class="divider"></li>
                                 <li>
                                     <a href="{{ path('illarra_admin_logout') }}">
-                                        <i class="icon-off"></i>&nbsp; {{ 'action.logout'|trans }}
+                                        <i class="icon-off"></i>&nbsp; {{ 'admin.action.logout'|trans }}
                                     </a>
                                 </li>
                             </ul>
@@ -123,6 +121,7 @@
         <hr />
         <small class="subheader-color">
             &copy; {{ "now"|date("Y") }}, <strong>illarra</strong>. Zarautz, Barcelona, Gent.
+            <br />{{ 'admin.footer.telephone'|trans }}: +32 476 06 63 87
         </small>
     </div>
 </div>

@@ -1,7 +1,5 @@
 {% extends "IllarraCoreBundle:Admin:layout.html.twig" %}
 
-{% trans_default_domain "illarra_admin" %}
-
 {% block content %}
 <div class="row">
     <div class="large-12 columns">
@@ -10,7 +8,7 @@
 </div>
 <div class="row">
     <div class="large-6 columns">
-        <h5 class="subheader">{{ 'subheader.403'|trans|format('<br/><strong>' ~ app.request.server.get('PHP_SELF')  ~ '</strong><br/>')|raw }}</h5>
+        <h5 class="subheader">{{ 'admin.403.subheader'|trans|format('<br/><strong>' ~ app.request.server.get('PHP_SELF')  ~ '</strong><br/>')|raw }}</h5>
     </div>
     <div class="large-6 columns hide-for-small">
         <i style="font-size:10em;" class="icon-ban-circle color-alert"></i>

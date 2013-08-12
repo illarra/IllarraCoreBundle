@@ -9,7 +9,7 @@
 {% macro action_new_button(url) %}
 {% spaceless %}
     <a href="{{ url }}" class="t-new alert button">
-        {{ 'action.new'|trans({}, 'illarra_admin') }}
+        {{ 'admin.action.new'|trans }}
     </a>
 {% endspaceless %}
 {% endmacro %}
@@ -17,7 +17,7 @@
 {% macro action_edit_button(url) %}
 {% spaceless %}
     <a href="{{ url }}" class="t-edit alert button">
-        {{ 'action.edit'|trans({}, 'illarra_admin') }}
+        {{ 'admin.action.edit'|trans }}
     </a>
 {% endspaceless %}
 {% endmacro %}
@@ -56,7 +56,7 @@
 
 {% macro render_check() %}
 {% spaceless %}
-    <i class="icon-check-empty js-check" title="{{ 'action.select'|trans({}, 'illarra_admin') }}"></i>
+    <i class="icon-check-empty js-check" title="{{ 'admin.action.select'|trans }}"></i>
 {% endspaceless %}
 {% endmacro %}
 
@@ -67,7 +67,7 @@
     {%- else -%}
         {% set entities_in_this_page = entities_count %}
     {%- endif %}
-    {% set string = 'page.range'|trans({}, 'illarra_admin') %}
+    {% set string = 'admin.page.range'|trans %}
     <span class="page-range">
         {{ string|format(
             '<strong>' ~ (((page - 1) * entities_per_page) + 1) ~ '</strong>',
@@ -180,6 +180,6 @@
 {% spaceless %}
     <i class="sort-handle icon-reorder"
         data-sortable-handle data-sortable-url="{{ url('illarra_admin_sort') }}"
-        title="{{ 'action.sort'|trans({}, 'illarra_admin') }}"></i>
+        title="{{ 'admin.action.sort'|trans }}"></i>
 {% endspaceless %}
 {% endmacro %}

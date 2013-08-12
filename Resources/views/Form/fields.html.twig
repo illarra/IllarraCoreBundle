@@ -33,9 +33,9 @@
 
 {% block choice_widget %}
 {% spaceless %}
-    {% set placeholder = 'placeholder.chosen.one'|trans({}, 'illarra_admin') %}
+    {% set placeholder = 'admin.chosen.placeholder.one'|trans %}
     {% if multiple %}
-        {% set placeholder = 'placeholder.chosen.multiple'|trans({}, 'illarra_admin') %}
+        {% set placeholder = 'admin.chosen.placeholder.multiple'|trans %}
     {% endif %}
     {% if expanded %}
         {% set chosen = '' %}
@@ -45,7 +45,7 @@
     {% set attr = attr|merge({
         'class': (attr.class|default('') ~ chosen)|trim,
         'data-placeholder': placeholder,
-        'data-no_results_text': 'placeholder.chosen.no_results'|trans({}, 'illarra_admin')
+        'data-no_results_text': 'admin.chosen.placeholder.no_results'|trans
     }) %}
     {{ parent() }}
 {% endspaceless %}
@@ -150,7 +150,6 @@
 
 {% block gallery_row %}
 {% spaceless %}
-    {% trans_default_domain "illarra_admin" %}
     {% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}
 
     <div class="section-container">
@@ -165,7 +164,7 @@
             </div>
             <h5 class="title">
                 <a href="#">
-                    <i class="icon-section-indicator"></i> {{ 'label.images'|trans }}
+                    <i class="icon-section-indicator"></i> {{ 'admin.label.gallery'|trans }}
                 </a>
             </h5>
             <div class="content">
@@ -192,7 +191,7 @@
                 <ul class="inline-list">
                     <li>
                         <a href="#" data-images-add-new>
-                            <i class="icon-plus-sign"></i> {{ 'action.addNewImage'|trans }}
+                            <i class="icon-plus-sign"></i> {{ 'admin.gallery.action.add'|trans }}
                         </a>
                     </li>
                 </ul>
@@ -209,7 +208,7 @@
         <div class="section">
             <h5 class="title">
                 <a href="#">
-                    <i class="icon-section-indicator"></i> {{ 'label.point'|trans({}, 'illarra_admin') }}
+                    <i class="icon-section-indicator"></i> {{ 'admin.label.point'|trans }}
                 </a>
             </h5>
             <div id="{{ id }}_container" class="content map-content">
@@ -219,7 +218,7 @@
                     </div>
                     <div class="small-3 columns">
                         <button id="{{ id }}_search" class="secondary postfix button" data-map-search>
-                            {{ 'action.search'|trans({}, 'illarra_admin') }}
+                            {{ 'admin.point.action.search'|trans }}
                         </button>
                     </div>
                 </div>
