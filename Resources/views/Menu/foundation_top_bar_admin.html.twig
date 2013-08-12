@@ -2,8 +2,8 @@
 
 {% block label %}
 {% if options.allow_safe_labels and item.getExtra('safe_label', false) -%}
-    {{ ('admin.menu.'~item.label)|raw|trans({}, item.getExtra('translation_domain', 'messages')) }}
+    {{ ('admin.'~item.label)|raw|trans({}, item.getExtra('translation_domain', 'messages')) }}
 {%- else -%}
-    {{ ('admin.menu.'~item.label)|trans({}, item.getExtra('translation_domain', 'messages')) }}
+    {{ ('admin.'~item.label)|trans({}, item.getExtra('translation_domain', 'messages')) }}
 {%- endif %}
 {% endblock %}
