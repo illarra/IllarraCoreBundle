@@ -127,10 +127,16 @@
                                 <th>
                                     <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge(app.request.query.all)|merge({'order_column': new_order_column, 'order_dir': new_order_dir})) }}">
                                         {{ ('admin.label.'~column)|trans }}
-                                        {% if column == order_column %}
-                                            {{ order_dir }}
-                                        {% endif %}
                                     </a>
+                                    {% if column == order_column %}
+                                        {% if order_dir == 'ASC' %}
+                                            <i class="icon-sort-up"></i>
+                                        {% else %}
+                                            <i class="icon-sort-down"></i>
+                                        {% endif %}
+                                    {% else %}
+                                        <i class="icon-sort"></i>
+                                    {% endif %}
                                 </th>
                             {% else %}
                                 <th>{{ ('admin.label.'~column)|trans }}</th>
