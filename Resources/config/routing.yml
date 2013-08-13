@@ -11,3 +11,10 @@ illarra_admin:
     prefix:   /admin
     options:
         i18n: false
+
+illarra_admin_user:
+    resource: "@IllarraCoreBundle/Controller/Admin/UserController.php"
+    type:     annotation
+    prefix:   "/admin/meta"
+    options:
+        i18n: false

@@ -85,7 +85,12 @@ admin:
     new:
         title: New
 
-    # GARBITZEKO
+    # USER MODEL
+
+    user:
+        menu: Users
+
+    # TO CLEAN
 
     page:
         previous:       Previous page

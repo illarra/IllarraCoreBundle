@@ -85,7 +85,12 @@ admin:
     new:
         title: Sortu
 
-    # GARBITZEKO
+    # USER MODEL
+
+    user:
+        menu:  Erabiltzaileak
+
+    # TO CLEAN
 
     page:
         previous: Aurreko orrialdea
