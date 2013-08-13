@@ -15,6 +15,8 @@ public function registerBundles()
     return array(
         // ...
         new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+        new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
+        new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
         new Illarra\CoreBundle\IllarraCoreBundle(),
         // ...
     );

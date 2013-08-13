@@ -1,30 +1,33 @@
 {
-  "name": "illarra/core-bundle",
-  "description": "Core functionality.",
-  "keywords": ["core", "utility", "bundle"],
-  "homepage": "https://github.com/illarra/IllarraCoreBundle",
-  "type": "symfony-bundle",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Asier Illarramendi",
-      "email": "asier@illarra.com"
+    "name": "illarra/core-bundle",
+    "description": "Core functionality.",
+    "keywords": ["core", "utility", "bundle"],
+    "homepage": "https://github.com/illarra/IllarraCoreBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Asier Illarramendi",
+            "email": "asier@illarra.com"
+        },
+        {
+            "name": "Eneko Illarramendi",
+            "email": "eneko@illarra.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "knplabs/doctrine-behaviors": "1.0.*",
+        "knplabs/knp-menu-bundle": "2.0.*",
+        "lexik/form-filter-bundle": "dev-master",
+        "white-october/pagerfanta-bundle": "v1.0.0",
     },
-    {
-      "name": "Eneko Illarramendi",
-      "email": "eneko@illarra.com"
-    }
-  ],
-  "require": {
-    "php": ">=5.4",
-    "knplabs/knp-menu-bundle": "2.0.*"
-  },
-  "require-dev": {
-    "symfony/framework-bundle": ">=2.3,<2.4-dev"
-  },
-  "autoload": {
-    "psr-0": { "Illarra\\CoreBundle": "" }
-  },
-  "target-dir": "Illarra/CoreBundle",
-  "minimum-stability": "dev"
+    "require-dev": {
+        "symfony/framework-bundle": ">=2.3,<2.4-dev"
+    },
+    "autoload": {
+        "psr-0": { "Illarra\\CoreBundle": "" }
+    },
+    "target-dir": "Illarra/CoreBundle",
+    "minimum-stability": "dev"
 }
