@@ -1,6 +1,25 @@
 {% extends "IllarraCoreBundle:Admin:layout.html.twig" %}
 {% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function () {
+            var toggle = $('[data-list-filter-toggle]'),
+                filter = $('[data-list-filter]');
+
+            toggle.click(function (e) {
+                filter.toggle();
+                e.preventDefault();
+            });
+
+            if (!(+filter.data('list-filter'))) {
+                filter.hide();
+            }
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
 
 <style>
@@ -57,6 +76,13 @@
             <ul class="button-group radius">
                 <li>{{ helper.action_select_button() }}</li>
             </ul>
+            {% if filter %}
+                <ul class="button-group radius js-action-main">
+                    <li>
+                        <a href="#" data-list-filter-toggle class="t-filter secondary button"><i class="icon-search"></i></a>
+                    </li>
+                </ul>
+            {% endif %}
             <ul class="button-group radius js-action-main">
                 <li>{{ helper.action_new_button(path(base_route ~'_new')) }}</li>
             </ul>
@@ -68,8 +94,8 @@
         <h3>{{ ('admin.'~entity_label)|trans }} &#8250; {{ 'admin.list.title'|trans }}</h3>
     </div>
     {% if filter %}
-        <div class="large-12 columns">
-            <form method="get" action="{{ path(base_route ~'_index') }}">
+        <div class="large-12 columns" data-list-filter="{{ is_filtered ? 1 : 0 }}">
+            <form method="get" action="{{ path(base_route ~'_index') }}" class="radius panel">
                 {{ form_rest(filter) }}
                 <input type="submit" class="button" value="{{ 'admin.action.filter'|trans }}" /> {{ 'admin.action.or'|trans }} <a href="{{ path(base_route ~'_index') }}">{{ 'admin.action.clearFilter'|trans }}</a>
             </form>

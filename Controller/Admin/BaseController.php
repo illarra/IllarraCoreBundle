@@ -129,7 +129,7 @@ class BaseController extends Controller
 
             $filter->submit($filter_data);
 
-            if ($filter->isValid()) {
+            if (!empty($filter_data) && $filter->isValid()) {
                 // build the query from the given form object
                 $this->get('lexik_form_filter.query_builder_updater')->addFilterConditions($filter, $qb);
                 $isFiltered = true;
