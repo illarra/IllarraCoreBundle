@@ -216,7 +216,7 @@ class BaseController extends Controller
     {
         $entity = $this->getNewEntity();
         
-        $form = $this->createForm($this->getNewType(), $entity);
+        $form = $this->createForm($this->getNewType(), $entity, ['cascade_validation' => true]);
         $form->bind($request);
         
         if ($form->isValid()) {
@@ -290,7 +290,7 @@ class BaseController extends Controller
     {
         $entity = $this->findEntityById($id);
 
-        $editForm = $this->createForm($this->getNewType(), $entity);
+        $editForm = $this->createForm($this->getNewType(), $entity, ['cascade_validation' => true]);
         $editForm->bind($request);
         
         if ($editForm->isValid()) {
