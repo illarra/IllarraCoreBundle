@@ -1,5 +1,18 @@
 {% extends 'form_div_layout.html.twig' %}
 
+{% block form_row %}
+{% spaceless %}
+    <div>
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+        {% if help is not null %}
+            <span class="help">{{ ('admin.'~help)|trans }}</span>
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
 {% block form_label %}
 {% spaceless %}
     {% if label is not sameas(false) %}
