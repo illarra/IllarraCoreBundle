@@ -1,8 +1,5 @@
 {% extends "IllarraCoreBundle:Admin:layout.html.twig" %}
-
 {% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}
-
-{% trans_default_domain "illarra_admin" %}
 
 {% block content %}
 {% if entity.id %}
@@ -26,14 +23,18 @@
                         <form action="{{ path(base_route ~'_delete', { 'id': entity.id }) }}" method="POST">
                             <input type="hidden" name="_method" value="DELETE" />
                             {{ form_widget(delete_form) }}
-                            <button class="t-delete alert button" type="submit">{{ 'action.delete'|trans }}</button>
+                            <button class="t-delete alert button" type="submit">{{ 'admin.action.delete'|trans }}</button>
                         </form>
                     </li>
                 </ul>
             {% endif %}
         </div>
         <hr class="dark" />
-        <h3>{{ title|trans }}</h3>
+        {% if entity.id %}
+            <h3>{{ ('admin.'~entity_label)|trans }} &#8250; {{ 'admin.edit.title'|trans }} &#8250; <strong>{{ entity }}</strong></h3>
+        {% else %}
+            <h3>{{ ('admin.'~entity_label)|trans }} &#8250; {{ 'admin.new.title'|trans }}</h3>
+        {% endif %}
     </div>
 </div>
 <div class="row">
@@ -43,7 +44,7 @@
             {{ form_rest(form) }}
             <hr />
             <p>
-                <button class="radius button" type="submit">{{ 'action.save'|trans }}</button>
+                <button class="radius button" type="submit">{{ 'admin.action.save'|trans }}</button>
             </p>
         </form>
     </div>
