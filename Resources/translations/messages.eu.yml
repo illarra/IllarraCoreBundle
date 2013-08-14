@@ -19,7 +19,7 @@ admin:
         search:       Bilatu
         filter:       Filtratu
         or:           edo
-        clearFilter:  Garbitu
+        clearFilter:  Filtroa kendu
         galleryAdd:   Irudi berria gehitu
 
     admin:
@@ -73,7 +73,8 @@ admin:
         description: Deskribapena
 
     list:
-        title: Zerrenda
+        title:       Zerrenda
+        isFiltered:  Zerrenda hau filtratuta dago: aldatu zure bilaketa edo kendu filtroa formularioa erabiltzen
 
     login:
         subheader: Idatzi hemen zure erabiltzaile eta pasahitza administrazio gunean sartu ahal izateko.

@@ -19,7 +19,7 @@ admin:
         search:       Buscar
         filter:       Filtrar
         or:           o
-        clearFilter:  Limpiar
+        clearFilter:  Quitar el filtro
         galleryAdd:   Añadir nueva imagen
 
     admin:
@@ -73,7 +73,8 @@ admin:
         description: Descripción
 
     list:
-        title: Listar
+        title:       Listado
+        isFiltered:  Este listado está filtrado: puedes cambiar los criterios de búsqueda o quitar el filtro empleando el formulario
 
     login:
         subheader: Introduce tu nombre de usuario y contraseña para acceder a la zona de administración.

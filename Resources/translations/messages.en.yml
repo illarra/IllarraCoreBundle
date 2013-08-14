@@ -19,7 +19,7 @@ admin:
         search:       Search
         filter:       Filter
         or:           or
-        clearFilter:  Clear
+        clearFilter:  Clear filter
         galleryAdd:   Add new image
         description:  Description
 
@@ -73,7 +73,8 @@ admin:
         gallery:    Images
 
     list:
-        title: List
+        title:      List
+        isFiltered: This list is filtered: change or clear your search filters using the form
 
     login:
         subheader: Sign in with your username and password to access the administration area.

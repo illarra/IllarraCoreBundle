@@ -46,6 +46,17 @@ body {
     }
 }
 
+.filter-alert {
+    @include alert(#fcf8e3);
+    padding: 5px $half-padding;
+    font-size: 1em;
+    color: #c09853;
+
+    .close {
+        padding: 0;
+    }
+}
+
 .admin-title {
     line-height: 1.4;
     margin-bottom: 0;

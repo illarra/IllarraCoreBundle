@@ -26,11 +26,11 @@
                 <div id="filter-dropdown" class="f-dropdown content medium" data-dropdown-content>
                     <form method="get" action="{{ path(base_route ~'_index') }}">
                         {{ form_rest(filter) }}
-                        <input type="submit" class="button" value="{{ 'admin.action.filter'|trans }}" />
+                        <input type="submit" class="button" value="{{ 'admin.action.search'|trans }}" />
                         {% if is_filtered %}
                             &nbsp;&nbsp;{{ 'admin.action.or'|trans }}&nbsp;&nbsp;
                             <a href="{{ path(base_route ~'_index') }}">
-                                {{ 'admin.action.clearFilter'|trans }}
+                                {{ 'admin.action.clearFilter'|trans|lower }}
                             </a>
                         {% endif %}
                     </form>
@@ -47,6 +47,12 @@
 <div class="row">
     <div class="large-12 columns">
         {% if entities.count %}
+            {% if is_filtered %}
+                <div data-alert class="radius alert-box filter-alert">
+                    {{ 'admin.list.isFiltered'|trans }}
+                    <a href="{{ path(base_route ~'_index') }}" class="close">&times;</a>
+                </div>
+            {% endif %}
             <table>
                 <thead>
                     <tr>
