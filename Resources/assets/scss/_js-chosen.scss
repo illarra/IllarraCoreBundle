@@ -1,23 +1,23 @@
 // Chosen fixes
 
-.chzn-container {
-    margin-bottom: $formSpacing;
+.chosen-container {
+    margin-bottom: $form-spacing;
     
     * {
         box-sizing: content-box;
     }
     
-    .chzn-drop {
+    .chosen-drop {
         background: #fdfdfd;
         //@include border-bottom-radius($inputBorderRadius);
         //@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.1));
-        border: $inputBorderWidth $inputBorderStyle $inputBorderColor;
+        border: $input-border-width $input-border-style $input-focus-border-color;
         border-top: 0;
     }
 }
 
-.chzn-container .chzn-results,
-.chzn-container-multi .chzn-results {
+.chosen-container .chosen-results,
+.chosen-container-multi .chosen-results {
     //@include border-bottom-radius($inputBorderRadius);
     margin: 0 4px 4px 0;
     max-height: 240px;
@@ -28,28 +28,36 @@
     }
 }
 
-.chzn-container-single .chzn-single,
-.chzn-container-multi .chzn-choices {
+.chosen-container-single,
+.chosen-container-multi {
+    font-size: 1em;
+}
+
+.chosen-container-single .chosen-single,
+.chosen-container-multi .chosen-choices {
     display: block;
-    background: $inputBgColor;
-    @include radius($inputBorderRadius);
-    //@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.1));
-    //line-height: (ms(0) + ($formSpacing * 1.5)) - 1;
-    font-size: $inputFontSize;
-    color: $inputFontColor;
-    border: $inputBorderWidth $inputBorderStyle $inputBorderColor;
+    background: $input-bg-color;
+    @include radius(0);
+    height: auto;
+    padding: .5em;
+    line-height: normal;
+    color: $input-font-color;
+    border: $input-border-width $input-border-style $input-border-color;
+    box-shadow: $input-box-shadow;
 }
 
 
-.chzn-container-single .chzn-single div b,
-.chzn-container-single .chzn-single abbr,
-.chzn-container-multi .chzn-choices .search-choice .search-choice-close {
+.chosen-container-single .chosen-single div b,
+.chosen-container-single .chosen-single abbr,
+.chosen-container-multi .chosen-choices .search-choice .search-choice-close {
     background: none;
     display: inline-block;
     position: static;
     width: auto;
     height: auto;
     font-size: inherit;
+    margin: 0.5em 0;
+    border: 0;
     
     &:before {
         color: $subheader-font-color;
@@ -60,18 +68,17 @@
         display: inline-block;
         speak: none;
         content: "\f078";
-        margin-left: 0;
         cursor: pointer;
         //font-size: ms(0) - 1;
         //line-height: ms(0);
     }
 }
-.chzn-container-single .chzn-single-with-drop div b:before {
+.chosen-container-single .chosen-single-with-drop div b:before {
     content: "\f077";
 }
 
-.chzn-container-single {
-    .chzn-single {
+.chosen-container-single {
+    .chosen-single {
         //height: (ms(0) + ($formSpacing * 1.5)) - 2;
         
         abbr {
@@ -87,7 +94,7 @@
         }
     }
     
-    .chzn-search input {
+    .chosen-search input {
         margin: 5px 0;
         padding: 0 20px 0 5px;
         
@@ -96,19 +103,19 @@
         }
     }
     
-    .chzn-default {
+    .chosen-default {
         color: $subheader-font-color;
     }
 }
 
-.chzn-container-multi {
-    .chzn-choices {
+.chosen-container-multi {
+    .chosen-choices {
         .search-field {
             padding: 1px 3px;
             
             input {
                 font-family: inherit;
-                font-size: $inputFontSize;
+                font-size: $input-font-size;
                 color: $subheader-font-color
             }
         }
@@ -133,13 +140,13 @@
     }
 }
 
-.chzn-container-active {
-    .chzn-single,
-    .chzn-choices {
+.chosen-container-active {
+    .chosen-single,
+    .chosen-choices {
         //@include border-bottom-radius(0);
     }
     
-    .chzn-single-with-drop {
-        border: $inputBorderWidth $inputBorderStyle $inputBorderColor;
+    .chosen-single-with-drop {
+        border: $input-border-width $input-border-style $input-border-color;
     }
 }

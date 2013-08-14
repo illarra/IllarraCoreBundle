@@ -29,6 +29,36 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.filter-dropdown-button {
+    margin-right: $half-padding;
+
+    i {
+        margin: 0 1px;
+    }
+}
+
+#filter-dropdown {
+    background-color: #fafafa;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+
+    &:before {
+        border-bottom-color: #fafafa; 
+    }
+}
+
+.admin-title {
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.inline-hide-for-small {
+    display: none;
+
+    @media #{$small} {
+        display: inline;
+    }
+}
+
 .top-bar {
     margin: 0 -10px;
     
@@ -75,6 +105,57 @@ body {
 #footer {
     margin-top: $base-padding;
     margin-bottom: $column-gutter;
+}
+
+//
+// Tables
+//
+
+table {
+    border: 0;
+    width: 100%;
+    
+    tbody tr {
+        border-top: 1px solid #e5e5e5;
+
+        &:hover {
+            background-color: #fafafa;
+        }
+    }
+
+    thead,
+    tr:nth-of-type(even) {
+        background: transparent;
+    }
+
+    thead th:first-child {
+        width: 1px;
+    }
+
+    tbody tr td,
+    thead tr th {
+        font-size: 1em;
+        text-align: left;
+        padding: 0.5em;
+    }
+
+    tbody tr td {
+        line-height: 1.2;
+    }
+
+    tr .text-right .label {
+        cursor: pointer;
+        background-color: #fafafa;
+        color: #626262;
+        margin-left: 0.76923em;
+        font-size: .9em;
+        padding: 0.3em 0.6em;
+
+        &:hover {
+            background-color: #4787ed;
+            color: #fafafa;
+        }
+    }
 }
 
 //

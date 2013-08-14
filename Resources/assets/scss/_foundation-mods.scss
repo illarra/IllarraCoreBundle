@@ -48,7 +48,7 @@ textarea {
     margin-bottom: $base-padding;
     
     @media #{$small} {
-        margin-bottom: $column-gutter;
+        margin-bottom: $base-padding * 1.5;
     }
 }
 
@@ -96,6 +96,14 @@ hr {
     &.dark {
         border-color: $hr-dark-color;
     }
+}
+
+//
+// Panel
+//
+
+.panel {
+    padding: $base-padding;
 }
 
 //

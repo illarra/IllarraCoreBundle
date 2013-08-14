@@ -1,106 +1,48 @@
 {% extends "IllarraCoreBundle:Admin:layout.html.twig" %}
 {% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script type="text/javascript">
-        $(function () {
-            var toggle = $('[data-list-filter-toggle]'),
-                filter = $('[data-list-filter]');
-
-            toggle.click(function (e) {
-                filter.toggle();
-                e.preventDefault();
-            });
-
-            if (!(+filter.data('list-filter'))) {
-                filter.hide();
-            }
-        });
-    </script>
-{% endblock %}
-
 {% block content %}
-
-<style>
-    table {
-        border: 0;
-        width: 100%;
-    }
-    table tbody tr {
-        border-top: 1px solid #e5e5e5;
-    }
-    table thead,
-    table tr:nth-of-type(even) {
-        background: transparent;
-    }
-    table thead th:first-child {
-        width: 1px;
-    }
-    table tbody tr td, table thead tr th {
-        font-size: 1em;
-        text-align: left;
-        padding: 0.5em;
-    }
-    table tbody tr td {
-        line-height: 1.2;
-    }
-    table tr .text-right .label {
-        cursor: pointer;
-        background-color: #fafafa;
-        color: #626262;
-        margin-left: 0.76923em;
-        font-size: .9em;
-        padding: 0.3em 0.6em;
-    }
-    table tr .text-right .label:hover {
-        background-color: #4787ed;
-        color: #fafafa;
-    }
-    table tbody tr:hover {
-        background-color: #fafafa;
-    }
-</style>
-
 
 <div class="row">
     <div class="large-12 columns">
-        <div class="button-bar right hide-for-small">
-            {{ helper.page_range(page, pages, entities_per_page, entities_count) }}
-            <ul class="button-group radius">
+        <div class="button-bar right">
+            <span class="inline-hide-for-small">
+                {{ helper.page_range(page, pages, entities_per_page, entities_count) }}
+            </span>
+            <ul class="button-group radius hide-for-small">
                 <li>{{ helper.page_previous_button(base_route ~'_index', page, pages) }}</li>
                 <li>{{ helper.page_next_button(base_route ~'_index', page, pages) }}</li>
             </ul>
-        </div>
-        <div class="button-bar">
-            <ul class="button-group radius">
-                <li>{{ helper.action_select_button() }}</li>
-            </ul>
-            {% if filter %}
-                <ul class="button-group radius js-action-main">
-                    <li>
-                        <a href="#" data-list-filter-toggle class="t-filter secondary button"><i class="icon-search"></i></a>
-                    </li>
-                </ul>
-            {% endif %}
             <ul class="button-group radius js-action-main">
                 <li>{{ helper.action_new_button(path(base_route ~'_new')) }}</li>
             </ul>
+        </div>
+        <div class="button-bar">
+            <!--<ul class="button-group radius">
+                <li>{{ helper.action_select_button() }}</li>
+            </ul>-->
+            {% if filter %}
+                <a href="#" class="t-filter left round compact secondary button filter-dropdown-button" data-dropdown="filter-dropdown"><i class="icon-search"></i></a>
+                <div id="filter-dropdown" class="f-dropdown content medium" data-dropdown-content>
+                    <form method="get" action="{{ path(base_route ~'_index') }}">
+                        {{ form_rest(filter) }}
+                        <input type="submit" class="button" value="{{ 'admin.action.filter'|trans }}" />
+                        {% if is_filtered %}
+                            &nbsp;&nbsp;{{ 'admin.action.or'|trans }}&nbsp;&nbsp;
+                            <a href="{{ path(base_route ~'_index') }}">
+                                {{ 'admin.action.clearFilter'|trans }}
+                            </a>
+                        {% endif %}
+                    </form>
+                </div>
+            {% endif %}
             <ul class="button-group radius js-action-check" style="display:none">
                 <li>{{ helper.action_delete_all_button() }}</li>
             </ul>
+            <h4 class="admin-title">{{ ('admin.'~entity_label)|trans }} &#8250; {{ 'admin.list.title'|trans }}</h4>
         </div>
         <hr />
-        <h3>{{ ('admin.'~entity_label)|trans }} &#8250; {{ 'admin.list.title'|trans }}</h3>
     </div>
-    {% if filter %}
-        <div class="large-12 columns" data-list-filter="{{ is_filtered ? 1 : 0 }}">
-            <form method="get" action="{{ path(base_route ~'_index') }}" class="radius panel">
-                {{ form_rest(filter) }}
-                <input type="submit" class="button" value="{{ 'admin.action.filter'|trans }}" /> {{ 'admin.action.or'|trans }} <a href="{{ path(base_route ~'_index') }}">{{ 'admin.action.clearFilter'|trans }}</a>
-            </form>
-        </div>
-    {% endif %}
 </div>
 <div class="row">
     <div class="large-12 columns">
@@ -135,7 +77,7 @@
                                             <i class="icon-sort-down"></i>
                                         {% endif %}
                                     {% else %}
-                                        <i class="icon-sort"></i>
+                                        <i class="icon-sort color-text-lightest"></i>
                                     {% endif %}
                                 </th>
                             {% else %}
