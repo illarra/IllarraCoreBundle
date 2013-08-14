@@ -9,7 +9,7 @@ trait Featured
      *
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isFeatured;
+    private $isFeatured = false;
     
     /**
      * @param boolean $isFeatured
