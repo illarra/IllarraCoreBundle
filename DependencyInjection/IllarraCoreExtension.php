@@ -28,5 +28,6 @@ class IllarraCoreExtension extends Extension
         $container->setParameter('illarra_core.active_locales', $config['active_locales']);
         $container->setParameter('illarra_core.admin.entities_per_page', $config['admin']['entities_per_page']);
         $container->setParameter('illarra_core.admin.locale', $config['admin']['locale']);
+        $container->setParameter('illarra_core.admin.templates.login', $config['admin']['templates']['login']);
     }
 }

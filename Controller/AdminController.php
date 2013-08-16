@@ -26,9 +26,12 @@ class AdminController extends Controller
             $error = $this->get('request')->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
         }
         
-        return array(
-            'last_username' => $this->get('request')->getSession()->get(SecurityContext::LAST_USERNAME),
-            'error'         => $error,
+        return $this->render(
+            $this->container->getParameter('illarra_core.admin.templates.login'),
+            [
+                'last_username' => $this->get('request')->getSession()->get(SecurityContext::LAST_USERNAME),
+                'error'         => $error,
+            ]
         );
     }
     
