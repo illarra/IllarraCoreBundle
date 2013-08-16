@@ -9,6 +9,12 @@ services:
         arguments: [@twig]
         tags:
             - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+    illarra_core.doctrine.user_presave_listener:
+        class: Illarra\CoreBundle\EventListener\PreSaveUserListener
+        arguments: [@security.encoder_factory]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
     illarra_core.twig.configuration_extension:
         class: Illarra\CoreBundle\Twig\ConfigurationExtension
         arguments: [@service_container]
