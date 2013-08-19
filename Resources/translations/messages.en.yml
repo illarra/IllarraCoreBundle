@@ -21,7 +21,6 @@ admin:
         or:           or
         clearFilter:  Clear filter
         galleryAdd:   Add new image
-        description:  Description
 
     admin:
         title: Admin area
@@ -54,23 +53,24 @@ admin:
         datetime: m/d/Y H:i
 
     label:
-        id:         ID
-        name:       Name
-        address:    Address
-        username:   Username
-        password:   Password
-        telephone:  Telephone
-        email:      Email
-        newLocale:  New locale
-        createdAt:  Created at
-        updatedAt:  Updated at
-        createdBy:  Created by
-        updatedBy:  Updated by
-        isFeatured: Destacado
-        isVisible:  Visible
-        point:      Location
-        code:       Code
-        gallery:    Images
+        id:          ID
+        name:        Name
+        address:     Address
+        username:    Username
+        password:    Password
+        telephone:   Telephone
+        email:       Email
+        newLocale:   New locale
+        createdAt:   Created at
+        updatedAt:   Updated at
+        createdBy:   Created by
+        updatedBy:   Updated by
+        isFeatured:  Featured
+        isVisible:   Visible
+        point:       Location
+        code:        Code
+        gallery:     Images
+        description: Description
 
     list:
         title:      List

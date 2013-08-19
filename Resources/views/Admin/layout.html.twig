@@ -7,7 +7,6 @@
         "@IllarraCoreBundle/Resources/assets/vendor/chosen-1.0.0/chosen.css"
         "@IllarraCoreBundle/Resources/assets/vendor/jquery-ui-1.10.1/css/smoothness/jquery-ui-1.10.1.custom.css"
         "@IllarraCoreBundle/Resources/assets/css/admin.css"
-        "@IllarraCoreBundle/Resources/assets/css/ie8.css"
     %}
         <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -47,17 +46,6 @@
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-    <script type="text/javascript">
-        $(function () {
-            $('[data-filter-toggle] > *').click(function (e) {
-                setTimeout(function () {
-                    $('[data-filter-toggle]').click();
-                }, 0);
-
-                e.preventDefault();
-            });
-        });
-    </script>
 {% endblock %}
 
 {% block head_elements %}

@@ -29,7 +29,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-.filter-dropdown-button {
+.nav-action-button {
     margin-right: $half-padding;
 
     i {
@@ -59,7 +59,13 @@ body {
 
 .admin-title {
     line-height: 1.4;
-    margin-bottom: 0;
+    margin: 3em 0 0;
+    clear: both;
+
+    @media #{$small} {
+        margin-top: 0;
+        clear: none;
+    }
 }
 
 .inline-hide-for-small {
@@ -71,7 +77,7 @@ body {
 }
 
 .top-bar {
-    margin: 0 -10px;
+    margin: 0;
     
     .name h1 a {
         padding-left: $base-padding-px;
@@ -239,6 +245,14 @@ table {
                 }
             //}
         }
+    }
+
+    p.help {
+        color: $subheader-font-color;
+        border-left: 1px solid $primary-color;
+        padding: .5em 0 0 1em;
+        margin: -.5em 0 2em .5em;
+        font-size: 0.95em;
     }
 }
 

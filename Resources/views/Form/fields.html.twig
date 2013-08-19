@@ -2,13 +2,15 @@
 
 {% block form_row %}
 {% spaceless %}
-    <div>
-        {{ form_label(form) }}
-        {{ form_errors(form) }}
-        {{ form_widget(form) }}
-        {% if help is not null %}
-            <span class="help">{{ ('admin.'~help)|trans }}</span>
-        {% endif %}
+    <div class="row">
+        <div class="large-12 columns">
+            {{ form_label(form) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+            {% if help is not null %}
+                <p class="help">{{ ('admin.'~help)|trans }}</p>
+            {% endif %}
+        </div>
     </div>
 {% endspaceless %}
 {% endblock form_row %}
@@ -46,12 +48,14 @@
 
 {% block checkbox_row %}
 {% spaceless %}
-   <div style="margin-bottom: 1em;" class="checkbox-container">
-        {{ form_widget(form) }} {{ form_label(form) }}
-        {{ form_errors(form) }}
-        {% if help is defined %}
-            <p class="help">{{ help|raw }}</p>
-        {% endif %}
+   <div class="row checkbox-container">
+        <div class="large-12 columns">
+            {{ form_widget(form) }} {{ form_label(form) }}
+            {{ form_errors(form) }}
+            {% if help is defined %}
+                <p class="help">{{ ('admin.'~help)|trans }}</p>
+            {% endif %}
+        </div>
     </div>
 {% endspaceless %}
 {% endblock checkbox_row %}

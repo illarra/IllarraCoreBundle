@@ -115,12 +115,6 @@ hr {
         margin: 0;
     }
     
-    .radius {
-        button {
-            @include border-radius($global-radius);
-        }
-    }
-    
     .page-range {
         float: $default-opposite;
         line-height: 30px;

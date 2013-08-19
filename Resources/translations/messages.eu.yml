@@ -65,8 +65,8 @@ admin:
         updatedAt:   Eguneratze-data
         createdBy:   Sortzailea
         updatedBy:   Eguneratuta
-        isFeatured:  Destacado
-        isVisible:   Visible
+        isFeatured:  Bereizia
+        isVisible:   Ikusgai
         point:       Kokapena
         code:        Kodea
         gallery:     Irudiak

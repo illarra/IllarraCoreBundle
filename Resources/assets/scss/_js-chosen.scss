@@ -46,7 +46,6 @@
     box-shadow: $input-box-shadow;
 }
 
-
 .chosen-container-single .chosen-single div b,
 .chosen-container-single .chosen-single abbr,
 .chosen-container-multi .chosen-choices .search-choice .search-choice-close {
@@ -110,26 +109,33 @@
 
 .chosen-container-multi {
     .chosen-choices {
-        .search-field {
-            padding: 1px 3px;
+        padding: 0.35em 0 0;
+
+        li.search-field {
+            padding: .25em;
             
-            input {
+            input[type="text"] {
                 font-family: inherit;
                 font-size: $input-font-size;
-                color: $subheader-font-color
+                color: $subheader-font-color !important;
+                height: auto;
+                margin: -1px .5em 0;
+                padding: 0;
             }
         }
         
-        .search-choice {
-            background-image: none;
-            //@include box-shadow(none);
+        li.search-choice {
+            background: whitesmoke;
+            @include box-shadow(none);
             @include radius($inputBorderRadius);
             border: 0;
-            padding: 3px 8px;
-            margin-top: 5px;
+            margin: 0 0 .35em .35em;
+            padding: .35em 24px .35em .5em;
             
             .search-choice-close {
                 margin-left: 5px;
+                font-size: inherit;
+                top: -2px;
                 
                 &:before {
                     content: "\f00d";
