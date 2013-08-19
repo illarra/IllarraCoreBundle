@@ -47,6 +47,17 @@
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
+    <script type="text/javascript">
+        $(function () {
+            $('[data-filter-toggle] > *').click(function (e) {
+                setTimeout(function () {
+                    $('[data-filter-toggle]').click();
+                }, 0);
+
+                e.preventDefault();
+            });
+        });
+    </script>
 {% endblock %}
 
 {% block head_elements %}
