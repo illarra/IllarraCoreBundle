@@ -22,7 +22,7 @@
                 <li>{{ helper.action_select_button() }}</li>
             </ul>-->
             {% if filter %}
-                <a href="#" class="t-filter left round compact secondary button nav-action-button" data-dropdown="filter-dropdown"><i class="icon-search"></i></a>
+                <a href="#" class="t-filter left round compact secondary button nav-action-button" data-filter-toggle data-dropdown="filter-dropdown"><i class="icon-search"></i></a>
                 <div id="filter-dropdown" class="f-dropdown content medium" data-dropdown-content>
                     <form method="get" action="{{ path(base_route ~'_index') }}">
                         {{ form_rest(filter) }}
