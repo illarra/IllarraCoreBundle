@@ -14,6 +14,7 @@ public function registerBundles()
 {
     return array(
         // ...
+        new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
         new Knp\Bundle\MenuBundle\KnpMenuBundle(),
         new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
         new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),

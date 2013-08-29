@@ -18,6 +18,7 @@
     "require": {
         "php": ">=5.4",
         "knplabs/doctrine-behaviors": "1.0.*",
+        "jms/security-extra-bundle": "1.5.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*",
         "lexik/form-filter-bundle": "dev-master",
         "white-october/pagerfanta-bundle": "v1.0.0"
