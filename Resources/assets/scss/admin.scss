@@ -125,6 +125,22 @@ body {
 }
 
 //
+// Errors
+//
+
+.error {
+    margin-bottom: .75em;
+
+    li {
+        color: #c20000;
+        list-style: none;
+        padding: 3px .5em;
+        background-color: #ffe7e0;
+        border-radius: 3px;
+    }
+}
+
+//
 // Tables
 //
 
