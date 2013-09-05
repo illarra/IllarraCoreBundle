@@ -1,0 +1,17 @@
+boolean:
+    yes_or_no:          "Edozein"
+    yes:                "Bai"
+    no:                 "Ez"
+
+number:
+    equal:              "Berdina"
+    greater_than:       "Haundiagoa"
+    greater_than_equal: "Haundiagoa edo berdina"
+    lower_than:         "Txikiagoa"
+    lower_than_equal:   "Txikiagoa edo berdina"
+
+text:
+    starts:             "Hasten da"
+    ends:               "Bukatzen da"
+    equals:             "Berdina"
+    both:               "Barnean"

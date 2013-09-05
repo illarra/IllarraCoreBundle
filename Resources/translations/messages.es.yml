@@ -1,8 +1,3 @@
-boolean:
-    yes_or_no: Sí o No
-    yes:       Sí
-    no:        No
-
 admin:
     403:
         subheader: "Acceso denegado. Has intentado acceder a %s pero no tienes permisos suficientes para ver esta página. Contacta con tu administrador o con nosotros para ver qué es lo que puede estar pasando."
