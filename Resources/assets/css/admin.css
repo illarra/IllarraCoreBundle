@@ -8153,11 +8153,11 @@ body {
 }
 
 /* line 131, ../scss/admin.scss */
-.error {
+.errors {
   margin-bottom: .75em;
 }
 /* line 134, ../scss/admin.scss */
-.error li {
+.errors li {
   color: #c20000;
   list-style: none;
   padding: 3px 0.5em;
