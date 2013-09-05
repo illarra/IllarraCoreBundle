@@ -1,3 +1,8 @@
+boolean:
+    yes_or_no: Bai edo Ez
+    yes:       Bai
+    no:        Ez
+
 admin:
     403:
         subheader: "Sarbidea ukatuta. %s helbidean sartzen saiatu zara, baina ez duzu orri hau ikusteko beharrezko baimenik. Jar zaitez zure administratzailearekin edo gurekin harremanetan zer gertatu ote den ikusteko."
