@@ -100,7 +100,11 @@
                         <tr>
                             <td>{{ helper.render_check() }}</td>
                             {% for column in columns %}
-                                <td>{{ values[column] }}</td>
+                                {% if values[column] is sameas(true) or values[column] is sameas(false) %}
+                                    <td>{{ values[column] ? '<i class="icon-ok color-success"></i>' : '<i class="icon-remove color-alert"></i>' }}</td>
+                                {% else %}
+                                    <td>{{ values[column] }}</td>
+                                {% endif %}
                             {% endfor %}
                             <td class="text-right">
                                 <a href="{{ path(base_route ~'_edit', { 'id': entity.id }) }}"
