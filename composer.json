@@ -21,8 +21,7 @@
         "jms/serializer-bundle": "0.12.*@dev",
         "jms/security-extra-bundle": "1.5.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*",
-        "lexik/form-filter-bundle": "dev-master",
-        "white-october/pagerfanta-bundle": "v1.0.0"
+        "lexik/form-filter-bundle": "dev-master"
     },
     "require-dev": {
         "symfony/framework-bundle": ">=2.3,<2.4-dev"

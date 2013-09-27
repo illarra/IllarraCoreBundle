@@ -4,19 +4,19 @@ namespace Illarra\CoreBundle\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Pagerfanta\Pagerfanta;
-use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Doctrine\ORM\Tools\Pagination\Paginator as DoctrinePaginator;
 
 class BaseController extends Controller
 {
     use \Illarra\CoreBundle\Traits\Controller\CoreConfiguration;
 
-    protected $label     = '';
-    protected $namespace = '';
-    protected $entity    = '';
-    protected $baseRoute = '';
-    protected $filter    = '';
-    protected $order     = [null, null];
+    protected $label           = '';
+    protected $namespace       = '';
+    protected $entity          = '';
+    protected $baseRoute       = '';
+    protected $filter          = '';
+    protected $order           = [null, null];
+    protected $entitiesPerPage = null;
 
     protected function getListRow()
     {
@@ -86,7 +86,7 @@ class BaseController extends Controller
     {
         $request = $this->get('request');
 
-        // initialize a query builder
+        // Initialize a query builder
         $qb = $this->get('doctrine.orm.entity_manager')
             ->getRepository($this->entity)
             ->createQueryBuilder('e');
@@ -145,23 +145,26 @@ class BaseController extends Controller
             }
         }
 
-        // Pager fanta
-        $adapter   = new DoctrineORMAdapter($qb);
-        $paginator = new Pagerfanta($adapter);
-        $paginator->setMaxPerPage(20);
-
-        // check pages
-        if ($page < 1) {
-            return $this->redirect($this->generateUrl($this->getRouteName('index')));
-        }  
-
-        if ($page > $paginator->getNbPages()) {
-            return $this->redirect($this->generateUrl($this->getRouteName('index'), [
-                'page' => $paginator->getNbPages()
-            ]));
+        // Get entitiesPerPage and paginate
+        if (!is_int($this->entitiesPerPage)) {
+            $this->entitiesPerPage = $this->getEntitiesPerPageInAdmin();
         }
 
-        $paginator->setCurrentPage($page);
+        $qb->setFirstResult(($page - 1) * $this->entitiesPerPage)
+            ->setMaxResults($this->entitiesPerPage);
+        $paginator  = new DoctrinePaginator($qb, true);
+        $totalPages = floor($paginator->count() / $this->entitiesPerPage);
+
+        // Check pages
+        if ($page < 1) {
+            return $this->redirect($this->generateUrl($this->getRouteName('index')));
+        }
+
+        if ($page > $totalPages) {
+            return $this->redirect($this->generateUrl($this->getRouteName('index'), [
+                'page' => $totalPages
+            ]));
+        }
 
         // Columns definition
         $em     = $this->getDoctrine()->getManager();
@@ -185,17 +188,21 @@ class BaseController extends Controller
 
         $listMapper = new ListMapper($this->getListRow());
 
+        // Transform results
+        $entities  = new \Doctrine\Common\Collections\ArrayCollection;
+        foreach ($paginator as $item) $entities->add($item);
+
         return $this->render(
             $this->getTemplateName('index'),
             [
                 'entity_label'      => $this->label,
                 'filter'            => !empty($this->filter) ? $filter->createView() : false,
                 'is_filtered'       => $isFiltered,
-                'page'              => $paginator->getCurrentPage(),
-                'pages'             => $paginator->getNbPages(),
-                'entities'          => $paginator->getCurrentPageResults(),
-                'entities_per_page' => $paginator->getMaxPerPage(),
-                'entities_count'    => $paginator->getNbResults(),
+                'page'              => $page,
+                'pages'             => $totalPages,
+                'entities'          => $entities,
+                'entities_per_page' => $this->entitiesPerPage,
+                'entities_count'    => $paginator->count(),
                 'base_route'        => $this->baseRoute,
                 'list_mapper'       => $listMapper,
                 'columns'           => $columns,
