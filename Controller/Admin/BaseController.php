@@ -153,14 +153,14 @@ class BaseController extends Controller
         $qb->setFirstResult(($page - 1) * $this->entitiesPerPage)
             ->setMaxResults($this->entitiesPerPage);
         $paginator  = new DoctrinePaginator($qb, true);
-        $totalPages = floor($paginator->count() / $this->entitiesPerPage);
+        $totalPages = ceil($paginator->count() / $this->entitiesPerPage);
 
         // Check pages
         if ($page < 1) {
             return $this->redirect($this->generateUrl($this->getRouteName('index')));
         }
 
-        if ($page > $totalPages) {
+        if ($page > $totalPages && $totalPages != 0) {
             return $this->redirect($this->generateUrl($this->getRouteName('index'), [
                 'page' => $totalPages
             ]));
@@ -190,7 +190,12 @@ class BaseController extends Controller
 
         // Transform results
         $entities  = new \Doctrine\Common\Collections\ArrayCollection;
-        foreach ($paginator as $item) $entities->add($item);
+
+        if ($totalPages > 0) {
+            foreach ($paginator as $item) $entities->add($item);
+        } else {
+            $this->entitiesPerPage = 0;
+        }
 
         return $this->render(
             $this->getTemplateName('index'),
