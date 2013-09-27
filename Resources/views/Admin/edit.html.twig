@@ -11,6 +11,11 @@
     {% set action = path(base_route ~'_create') %}
     {% set method = 'POST' %}
 {% endif %}
+{% if app.session.get('filteredUri') != false %}
+    {% set back_uri = app.session.get('filteredUri') %}
+{% else %}
+    {% set back_uri = path(base_route ~'_index') %}
+{% endif %}
 <div class="row">
     <div class="large-12 columns">
         <div class="button-bar right">
@@ -27,7 +32,7 @@
             {% endif %}
         </div>
         <div class="button-bar">
-            <a href="{{ path(base_route ~'_index') }}" class="t-back left compact round secondary button nav-action-button">
+            <a href="{{ back_uri }}" class="t-back left compact round secondary button nav-action-button">
                 <i class="icon-arrow-left"></i>
             </a>
             {% if entity.id %}
