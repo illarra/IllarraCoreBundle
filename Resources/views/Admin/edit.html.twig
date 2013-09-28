@@ -11,8 +11,8 @@
     {% set action = path(base_route ~'_create') %}
     {% set method = 'POST' %}
 {% endif %}
-{% if app.session.get('filteredUri') != false %}
-    {% set back_uri = app.session.get('filteredUri') %}
+{% if app.session.get('indexUri') != false %}
+    {% set back_uri = app.session.get('indexUri') %}
 {% else %}
     {% set back_uri = path(base_route ~'_index') %}
 {% endif %}

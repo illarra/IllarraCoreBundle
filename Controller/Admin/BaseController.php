@@ -64,12 +64,6 @@ class BaseController extends Controller
         return $this->baseRoute . '_' . $page;
     }
 
-    protected function setFilteredUriInSession($uri)
-    {
-        $session = $this->getRequest()->getSession();
-        $session->set('filteredUri', $uri);
-    }
-
     protected function findEntityById($id) 
     {
         $em     = $this->getDoctrine()->getManager();
@@ -85,6 +79,7 @@ class BaseController extends Controller
     public function indexAction($page)
     {
         $request = $this->get('request');
+        $request->getSession()->set('indexUri', $request->getUri());
 
         // Initialize a query builder
         $qb = $this->get('doctrine.orm.entity_manager')
@@ -138,10 +133,7 @@ class BaseController extends Controller
             if (!empty($filter_data) && $filter->isValid()) {
                 // build the query from the given form object
                 $this->get('lexik_form_filter.query_builder_updater')->addFilterConditions($filter, $qb);
-                $this->setFilteredUriInSession($request->getUri());
                 $isFiltered = true;
-            } else {
-                $this->setFilteredUriInSession(false);
             }
         }
 
