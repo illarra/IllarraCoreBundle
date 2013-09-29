@@ -8,8 +8,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
 /**
+ * @ORM\MappedSuperclass
  * @ORM\Entity(repositoryClass="Illarra\CoreBundle\Repository\User")
- * @ORM\Table(name="admin_user")
  */
 class User implements UserInterface, \Serializable
 {
