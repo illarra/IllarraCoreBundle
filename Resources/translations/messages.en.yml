@@ -71,6 +71,7 @@ admin:
         code:        Code
         gallery:     Images
         description: Description
+        noResults:   No results
 
     list:
         title:      List

@@ -71,6 +71,7 @@ admin:
         code:        Kodea
         gallery:     Irudiak
         description: Deskribapena
+        noResults:   Ez dago emaitzarik
 
     list:
         title:       Zerrenda
