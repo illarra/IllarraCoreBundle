@@ -281,3 +281,23 @@
     </div>
 {% endspaceless %}
 {% endblock %}
+
+{% block fieldset_row %}
+{% spaceless %}
+    <div class="section-container">
+        <div class="section">
+            <h5 class="title">
+                <a href="#{{ name }}">
+                    <i class="icon-section-indicator"></i> {{ ('admin.label.'~name)|trans }}
+                </a>
+            </h5>
+            <div class="content">
+                {{ form_errors(form) }}
+                {% for field in form %}
+                    {{ form_row(field) }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock %}

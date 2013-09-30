@@ -109,7 +109,7 @@
 
 .chosen-container-multi {
     .chosen-choices {
-        padding: 0.35em 0 0;
+        padding: 0.25em 0;
 
         li.search-field {
             padding: .25em;
@@ -129,7 +129,7 @@
             @include box-shadow(none);
             @include radius($inputBorderRadius);
             border: 0;
-            margin: 0 0 .35em .35em;
+            margin: .1em 0 .1em .35em;
             padding: .35em 24px .35em .5em;
             
             .search-choice-close {

@@ -24,6 +24,10 @@ services:
         class: Illarra\CoreBundle\Twig\ClassifyExtension
         tags:
             - { name: twig.extension }
+    illarra_core.type.fieldset:
+        class: Illarra\CoreBundle\Form\Type\FieldsetType
+        tags:
+            - { name: form.type, alias: fieldset }
     illarra_core.type.point:
         class: Illarra\CoreBundle\Form\Type\PointType
         tags:
