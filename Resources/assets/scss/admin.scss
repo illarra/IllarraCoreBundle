@@ -262,14 +262,14 @@ table {
             //}
         }
     }
+}
 
-    p.help {
-        color: $subheader-font-color;
-        border-left: 1px solid $primary-color;
-        padding: .5em 0 0 1em;
-        margin: -.5em 0 2em .5em;
-        font-size: 0.95em;
-    }
+p.form-help {
+    color: $subheader-font-color;
+    border-left: 1px solid $primary-color;
+    padding: .5em 0 0 1em;
+    margin: -.5em 0 2em .5em;
+    font-size: 0.95em;
 }
 
 .checkbox-container {
