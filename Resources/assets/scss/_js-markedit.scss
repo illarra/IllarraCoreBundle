@@ -18,23 +18,27 @@ $markedit-height: 150px;
         &.markedit-toolbar {
             clear: both;
             padding: 0;
-            margin: $half-padding 0;
+            margin: $quarter-padding -0.5em $half-padding;
             font-size: 0.9em;
             
             .toolbar-group {
                 display: inline;
-                padding: 0 $quarter-padding 0 0;
-                margin: 0 $half-padding $quarter-padding 0;
-                border-right: 1px solid $hr-color;
+                padding: 0 $quarter-padding;
+                margin: 0 $quarter-padding $quarter-padding 0;
+                border-left: 1px solid $hr-color;
                 
+                &:first-child,
                 &:last-child {
                     border: 0;
+                    padding-left: 0;
                 }
                 
                 button {
                     margin: 0;
+                    padding: $quarter-padding;
                     
                     &.icon {
+                        @include box-shadow(none);
                         font-family: FontAwesome;
                         font-size: 1.2em;
                         font-weight: normal;
@@ -48,10 +52,9 @@ $markedit-height: 150px;
                         height: auto;
                         line-height: normal;
                         vertical-align: middle;
-                        background-image: none;
-                        background-position: 0% 0%;
-                        background-repeat: repeat;
+                        background: none;
                         margin-top: 0;
+                        padding-left: .6em;
                         
                         &:before {
                             text-decoration: inherit;
