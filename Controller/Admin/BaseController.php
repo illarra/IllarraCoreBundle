@@ -30,14 +30,11 @@ class BaseController extends Controller
         return [];
     }
 
-    protected function getFilterForm()
+    protected function getFilterInstance()
     {
         $filterClass = $this->namespace . $this->filter;
         
-        return $this->createForm(new $filterClass(), null, [
-            'action' => $this->generateUrl($this->baseRoute . '_index'),
-            'method' => 'GET',
-        ]);
+        return new $filterClass();
     }
 
     protected function getEntityName()
@@ -127,7 +124,10 @@ class BaseController extends Controller
         $isFiltered = false;
 
         if (!empty($this->filter)) {
-            $filter = $this->getFilterForm();
+            $filter = $this->createForm($this->getFilterInstance(), null, [
+                'action' => $this->generateUrl($this->baseRoute . '_index'),
+                'method' => 'GET',
+            ]);
 
             // http://stackoverflow.com/questions/9078754/symfony-2-form-extra-fields
             $filter_data     = $request->query->all();
