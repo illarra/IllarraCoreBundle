@@ -30,11 +30,16 @@ class BaseController extends Controller
         return [];
     }
 
+    protected function getFilterClassName()
+    {
+        return $this->namespace . $this->filter;
+    }
+
     protected function getFilterInstance()
     {
-        $filterClass = $this->namespace . $this->filter;
+        $class = $this->getFilterClassName();
         
-        return new $filterClass();
+        return new $class();
     }
 
     protected function getEntityName()
