@@ -65,9 +65,15 @@ class BaseController extends Controller
         return new $class();
     }
 
-    protected function getNewType()
+    protected function getTypeClassName()
     {
-        $class = $this->namespace . "\Form\\" . $this->getEntityName() . "Type";
+        return $this->namespace . "\Form\\" . $this->getEntityName() . "Type";
+    }
+
+    protected function getTypeInstance()
+    {
+        $class = $this->getTypeClassName();
+
         return new $class();
     }
     
@@ -240,7 +246,7 @@ class BaseController extends Controller
     {
         $entity = $this->getNewEntity();
         
-        $form = $this->createForm($this->getNewType(), $entity, ['cascade_validation' => true]);
+        $form = $this->createForm($this->getTypeInstance(), $entity, ['cascade_validation' => true]);
         $form->bind($request);
         
         if ($form->isValid()) {
@@ -278,7 +284,7 @@ class BaseController extends Controller
             $entity->mergeNewTranslations();
         }
         
-        $form = $this->createForm($this->getNewType(), $entity);
+        $form = $this->createForm($this->getTypeInstance(), $entity);
 
         return $this->render(
             $this->getTemplateName('edit'),
@@ -295,7 +301,7 @@ class BaseController extends Controller
     public function editAction($id)
     {
         $entity   = $this->findEntityById($id);
-        $editForm = $this->createForm($this->getNewType(), $entity);
+        $editForm = $this->createForm($this->getTypeInstance(), $entity);
         
         return $this->render(
             $this->getTemplateName('edit'),
@@ -314,7 +320,7 @@ class BaseController extends Controller
     {
         $entity = $this->findEntityById($id);
 
-        $editForm = $this->createForm($this->getNewType(), $entity, ['cascade_validation' => true]);
+        $editForm = $this->createForm($this->getTypeInstance(), $entity, ['cascade_validation' => true]);
         $editForm->bind($request);
         
         if ($editForm->isValid()) {
