@@ -255,7 +255,7 @@ class BaseController extends Controller
             $em->persist($entity);
             $em->flush();
             
-            return $this->redirect($this->generateUrl($this->getRouteName('index')));
+            return $this->redirect($request->getSession()->get('indexUri'));
         }
 
         return $this->render(
@@ -359,7 +359,7 @@ class BaseController extends Controller
             $em->flush();
         }
         
-        return $this->redirect($this->generateUrl($this->getRouteName('index')));
+        return $this->redirect($request->getSession()->get('indexUri'));
     }
 
     /**
