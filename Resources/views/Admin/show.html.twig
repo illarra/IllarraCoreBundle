@@ -1,0 +1,29 @@
+{% extends "IllarraCoreBundle:Admin:layout.html.twig" %}
+{% import "IllarraCoreBundle:Admin:helper.html.twig" as helper %}
+
+{% block content %}
+{% if app.session.get('indexUri') != false %}
+    {% set back_uri = app.session.get('indexUri') %}
+{% else %}
+    {% set back_uri = path(base_route ~'_index') %}
+{% endif %}
+<div class="row">
+    <div class="large-12 columns">
+        <div class="button-bar right">
+            <ul class="button-group radius">
+                <li>
+                    {{ helper.action_edit_button(path('admin_app_spot_spot_edit', { 'id': entity.id })) }}
+                </li>
+            </ul>
+        </div>
+        <div class="button-bar">
+            <a href="{{ back_uri }}" class="t-back left compact round secondary button nav-action-button">
+                <i class="icon-arrow-left"></i>
+            </a>
+            <h4 class="admin-title">{{ ('admin.'~entity_label)|trans }} &#8250; {{ 'admin.show.title'|trans }} &#8250; <strong>{{ entity }}</strong></h4>
+        </div>
+        <hr />
+    </div>
+</div>
+{% block custom_content %}{% endblock %}
+{% endblock %}

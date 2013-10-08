@@ -48,6 +48,9 @@ admin:
     edit:
         title: Editatu
 
+    show:
+        title: Ikusi
+
     format:
         date:     Y-m-d
         datetime: Y-m-d H:i

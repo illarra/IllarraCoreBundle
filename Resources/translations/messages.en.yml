@@ -48,6 +48,9 @@ admin:
     edit:
         title: Edit
 
+    show:
+        title: Show
+
     format:
         date:     m/d/Y
         datetime: m/d/Y H:i
