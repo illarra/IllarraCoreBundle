@@ -7,6 +7,7 @@ admin:
         logout:       Salir
         back:         Volver
         delete:       Eliminar
+        delete_confirm: ¿Seguro que quieres eliminar el registro?
         edit:         Editar
         new:          Nuevo
         save:         Guardar

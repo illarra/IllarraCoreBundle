@@ -227,6 +227,15 @@ $(function () {
         }).disableSelection();
     }
     
+    // -------------
+    // DELETE ENTITY
+    // -------------
+    $('[data-delete-entity]').submit(function (e) {
+        if (!confirm($('[data-delete-entity]').data('delete-entity'))) {
+            e.preventDefault();
+        }
+    });
+
     // -----
     // ADMIN
     // -----

@@ -22,7 +22,7 @@
             {% if delete_form is defined %}
                 <ul class="button-group radius">
                     <li>
-                        <form action="{{ path(base_route ~'_delete', { 'id': entity.id }) }}" method="POST">
+                        <form data-delete-entity="{{ 'admin.action.delete_confirmation'|trans }}" action="{{ path(base_route ~'_delete', { 'id': entity.id }) }}" method="POST">
                             <input type="hidden" name="_method" value="DELETE" />
                             {{ form_widget(delete_form) }}
                             <button class="t-delete alert button" type="submit">{{ 'admin.action.delete'|trans }}</button>
