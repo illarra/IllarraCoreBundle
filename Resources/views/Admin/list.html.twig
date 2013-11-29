@@ -90,7 +90,7 @@
                                 <th>{{ ('admin.label.'~column)|trans }}</th>
                             {% endif %}
                         {% endfor %}
-                        <th></th>
+                        <th>{# actions #}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -107,11 +107,13 @@
                                 {% endif %}
                             {% endfor %}
                             <td class="text-right">
-                                {% block extra_actions %}{% endblock %}
-                                <a href="{{ path(base_route ~'_edit', { 'id': entity.id }) }}"
-                                    class="secondary radius label">
-                                    <i class="icon-edit"></i> {{ 'admin.action.edit'|trans }}
-                                </a>
+                                <div style="display:flex;">
+                                    {% block extra_actions %}{% endblock %}
+                                    <a href="{{ path(base_route ~'_edit', { 'id': entity.id }) }}"
+                                        class="secondary radius label">
+                                        <i class="icon-edit"></i> {{ 'admin.action.edit'|trans }}
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                     {% endfor %}
