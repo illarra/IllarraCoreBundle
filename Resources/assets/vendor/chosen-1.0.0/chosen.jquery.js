@@ -292,80 +292,110 @@
       }
     };
 
-    AbstractChosen.prototype.winnow_results = function() {
-      var escapedSearchText, option, regex, regexAnchor, results, results_group, searchText, startpos, text, zregex, _i, _len, _ref;
+    AbstractChosen.prototype.string_escaped = function (str) {
 
-      this.no_results_clear();
-      results = 0;
-      searchText = this.get_search_text();
-      escapedSearchText = searchText.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-      regexAnchor = this.search_contains ? "" : "^";
-      regex = new RegExp(regexAnchor + escapedSearchText, 'i');
-      zregex = new RegExp(escapedSearchText, 'i');
-      _ref = this.results_data;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        option = _ref[_i];
-        option.search_match = false;
-        results_group = null;
-        if (this.include_option_in_results(option)) {
-          if (option.group) {
-            option.group_match = false;
-            option.active_options = 0;
-          }
-          if ((option.group_array_index != null) && this.results_data[option.group_array_index]) {
-            results_group = this.results_data[option.group_array_index];
-            if (results_group.active_options === 0 && results_group.search_match) {
-              results += 1;
-            }
-            results_group.active_options += 1;
-          }
-          if (!(option.group && !this.group_search)) {
-            option.search_text = option.group ? option.label : option.html;
-            option.search_match = this.search_string_match(option.search_text, regex);
-            if (option.search_match && !option.group) {
-              results += 1;
-            }
-            if (option.search_match) {
-              if (searchText.length) {
-                startpos = option.search_text.search(zregex);
-                text = option.search_text.substr(0, startpos + searchText.length) + '</em>' + option.search_text.substr(startpos + searchText.length);
-                option.search_text = text.substr(0, startpos) + '<em>' + text.substr(startpos);
-              }
-              if (results_group != null) {
-                results_group.group_match = true;
-              }
-            } else if ((option.group_array_index != null) && this.results_data[option.group_array_index].search_match) {
-              option.search_match = true;
-            }
-          }
+        var specialChars = [
+            { val: "a", let: "(Á|À|Ã|Â|Ä|á|à|ã|â|ä|a|A)" },
+            { val: "e", let: "(É|È|Ê|Ë|é|è|ê|ë|e|E)" },
+            { val: "i", let: "(Í|Ì|Î|Ï|í|ì|î|ï|i|I)" },
+            { val: "o", let: "(Ó|Ò|Õ|Ô|Ö|ó|ò|õ|ô|ö|o|O)" },
+            { val: "u", let: "(Ú|Ù|Û|Ü|ú|ù|û|ü|u|U)" },
+            { val: "c", let: "(Ç|ç|c|C)" }];
+        for (var i = 0; i < specialChars.length; i++) {
+            str = str.replace(new RegExp(specialChars[i].let, "g"), specialChars[i].val);
+            str = str.replace(new RegExp(specialChars[i].val, "g"), specialChars[i].let);
         }
-      }
-      this.result_clear_highlight();
-      if (results < 1 && searchText.length) {
-        this.update_results_content("");
-        return this.no_results(searchText);
-      } else {
-        this.update_results_content(this.results_option_build());
-        return this.winnow_results_set_highlight();
-      }
+        return str;
+    }
+
+
+    AbstractChosen.prototype.winnow_results = function () {
+        var escapedSearchText, option, regex, regexAnchor, results, results_group, searchText, startpos, text, zregex, _i, _len, _ref, search_split, found;
+
+        this.no_results_clear();
+        results = 0;
+        searchText = this.get_search_text();
+        escapedSearchText = searchText;
+        _ref = this.results_data;
+        search_split = searchText.split(' ');
+        regex = searchText.split(' '); 
+        for (_s = 0, _lens = search_split.length; _s < _lens; _s++) {
+            regex[_s] = new RegExp(this.string_escaped(search_split[_s]), "i");
+        }
+
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            option = _ref[_i];
+            option.search_match = false;
+            results_group = null;
+            if (this.include_option_in_results(option)) {
+                if (option.group) {
+                    option.group_match = false;
+                    option.active_options = 0;
+                }
+                if ((option.group_array_index != null) && this.results_data[option.group_array_index]) {
+                    results_group = this.results_data[option.group_array_index];
+                    if (results_group.active_options === 0 && results_group.search_match) {
+                        results += 1;
+                    }
+                    results_group.active_options += 1;
+                }
+                if (!(option.group && !this.group_search)) {
+                    option.search_text = option.group ? option.label : option.html;
+                    found = 0;
+                    for (_s = 0, _lens = regex.length; _s < _lens; _s++) {
+                        option.search_match = this.search_string_match(option.search_text, regex[_s]);
+                        if (option.search_match && !option.group) {
+                            found += 1;
+                        }
+                        if (found == _lens)
+                            results += 1;
+                        else
+                            option.search_match = null;
+
+                    }
+                    if (option.search_match) {
+                        if (searchText.length) {
+                            for (_s = 0, _lens = search_split.length; _s < _lens; _s++) {
+                                startpos = option.search_text.search(regex[_s]);
+                                text = option.search_text.substr(0, startpos + search_split[_s].length) + '</em>' + option.search_text.substr(startpos + search_split[_s].length);
+                                option.search_text = text.substr(0, startpos) + '<em>' + text.substr(startpos);
+                            }
+                        }
+                        if (results_group != null) {
+                            results_group.group_match = true;
+                        }
+                    } else if ((option.group_array_index != null) && this.results_data[option.group_array_index].search_match) {
+                        option.search_match = true;
+                    }
+                }
+            }
+        }
+        this.result_clear_highlight();
+        if (results < 1 && searchText.length) {
+            this.update_results_content("");
+            return this.no_results(searchText);
+        } else {
+            this.update_results_content(this.results_option_build());
+            return this.winnow_results_set_highlight();
+        }
     };
 
-    AbstractChosen.prototype.search_string_match = function(search_string, regex) {
-      var part, parts, _i, _len;
-
-      if (regex.test(search_string)) {
-        return true;
-      } else if (this.enable_split_word_search && (search_string.indexOf(" ") >= 0 || search_string.indexOf("[") === 0)) {
-        parts = search_string.replace(/\[|\]/g, "").split(" ");
-        if (parts.length) {
-          for (_i = 0, _len = parts.length; _i < _len; _i++) {
-            part = parts[_i];
-            if (regex.test(part)) {
-              return true;
+    AbstractChosen.prototype.search_string_match = function (search_string, regex) {
+        var part, parts, _i, _len;
+        if (regex.test(search_string)) {
+            return true;
+        } else if (this.enable_split_word_search && (search_string.indexOf(" ") >= 0 || search_string.indexOf("[") === 0)) {
+            parts = search_string.replace(/\[|\]/g, "").split(" ");
+            if (parts.length) {
+                for (_i = 0, _len = parts.length; _i < _len; _i++) {
+                    part = parts[_i];
+                    if (regex.test(part)) {
+                        return true;
+                    }
+                }
             }
-          }
+            return false;
         }
-      }
     };
 
     AbstractChosen.prototype.choices_count = function() {
