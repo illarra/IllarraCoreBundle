@@ -40,3 +40,8 @@ services:
         class: Illarra\CoreBundle\Form\Type\TranslationsType
         tags:
             - { name: form.type, alias: translations }
+    illarra_core.help_type_extension:
+        class: Illarra\CoreBundle\Form\Extension\HelpTypeExtension
+        tags:
+            - { name: form.type_extension, alias: form }
+
