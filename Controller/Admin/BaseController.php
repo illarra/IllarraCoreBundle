@@ -337,11 +337,12 @@ class BaseController extends Controller
         return $this->render(
             $this->getTemplateName('edit'),
             [
-                'entity_label' => $this->label,
-                'entity'       => $entity,
-                'form'         => $this->createDeleteForm($id)->createView(),
-                'delete_form'  => $deleteForm->createView(),
-                'base_route'   => $this->baseRoute,
+                'entity_label'     => $this->label,
+                'entity'           => $entity,
+                'form'             => $editForm->createView(),
+                'delete_form'      => $this->createDeleteForm($id)->createView(),
+                'base_route'       => $this->baseRoute,
+                'templates_folder' => $this->getTemplatesFolder(),
             ]  
         );
     }
