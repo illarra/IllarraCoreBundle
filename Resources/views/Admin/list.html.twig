@@ -107,13 +107,11 @@
                                 {% endif %}
                             {% endfor %}
                             <td class="text-right">
-                                <div style="display:flex;">
-                                    {% block extra_actions %}{% endblock %}
-                                    <a href="{{ path(base_route ~'_edit', { 'id': entity.id }) }}"
-                                        class="secondary radius label">
-                                        <i class="icon-edit"></i> {{ 'admin.action.edit'|trans }}
-                                    </a>
-                                </div>
+                                {% block extra_actions %}{% endblock %}
+                                <a href="{{ path(base_route ~'_edit', { 'id': entity.id }) }}"
+                                    class="secondary radius label">
+                                    <i class="icon-edit"></i> {{ 'admin.action.edit'|trans }}
+                                </a>
                             </td>
                         </tr>
                     {% endfor %}
