@@ -1,6 +1,6 @@
 {% macro action_new_button(url) %}
 {% spaceless %}
-    <a href="{{ url }}" class="t-new alert button">
+    <a href="{{ url }}" class="t-new button">
         {{ 'admin.action.new'|trans }}
     </a>
 {% endspaceless %}
@@ -16,7 +16,7 @@
 
 {% macro action_delete_all_button() %}
 {% spaceless %}
-    <a href="#" class="t-delete-all secondary button">
+    <a href="#" class="t-delete-all alert button">
         <i class="icon-remove"></i>
     </a>
 {% endspaceless %}
