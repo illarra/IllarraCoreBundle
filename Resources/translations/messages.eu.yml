@@ -7,7 +7,7 @@ admin:
         logout:       Irten
         back:         Atzera
         delete:       Ezabatu
-        delete_confirm: Zihur ezabatu nahi duzula?
+        delete_confirm: Ziur ezabatu nahi duzula?
         edit:         Editatu
         new:          Berria
         save:         Gorde
