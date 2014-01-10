@@ -12,7 +12,7 @@
         <div class="button-bar right">
             <ul class="button-group radius">
                 <li>
-                    {{ helper.action_edit_button(path('admin_app_spot_spot_edit', { 'id': entity.id })) }}
+                    {{ helper.action_edit_button(path(base_route ~'_edit', { 'id': entity.id })) }}
                 </li>
             </ul>
         </div>
