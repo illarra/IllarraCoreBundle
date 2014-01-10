@@ -106,7 +106,7 @@
                                     <td>{{ values[column]|raw }}</td>
                                 {% endif %}
                             {% endfor %}
-                            <td class="text-right">
+                            <td class="text-right flex-right">
                                 {% block extra_actions %}{% endblock %}
                                 <a href="{{ path(base_route ~'_edit', { 'id': entity.id }) }}"
                                     class="secondary radius label">

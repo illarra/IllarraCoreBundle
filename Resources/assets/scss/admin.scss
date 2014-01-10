@@ -189,6 +189,11 @@ table {
             color: #fafafa;
         }
     }
+
+    tr .flex-right {
+        display:flex;
+        flex-direction: row-reverse;
+    }
 }
 
 //
