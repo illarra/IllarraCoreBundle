@@ -584,6 +584,28 @@ table.compact-form {
         }
     }
 
+    tr.detail {
+        border-top: none;
+        border-bottom: 1px solid yellow;
+
+        .table-wrapper {
+            padding-top: 0;
+
+            table {
+                margin-bottom: 1em;
+                
+                tbody tr {
+                    border: 0;
+                }
+            }
+        }
+
+        td {
+            vertical-align: top;
+            background: #ffd;
+        }
+    }
+
     input, .chosen-container {
         font-size: 0.9em;
         margin-bottom: 0;
